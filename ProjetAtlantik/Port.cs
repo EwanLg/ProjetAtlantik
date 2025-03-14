@@ -1,28 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ProjetAtlantik
 {
-    internal class Secteur
+    internal class Port
     {
         public string nom;
-        public int noSecteur;
+        public int noPort;
 
-        public Secteur(string nom, int noSecteur)
+        public Port(string nom, int noPort)
         {
             this.nom = nom;
-            this.noSecteur = noSecteur;
+            this.noPort = noPort;
         }
         public string GetNom()
         {
             return nom;
         }
-        public int GetNoSecteur()
+        public int GetNoPort()
         {
-            return noSecteur;
+            return noPort;
         }
         public override string ToString()
         {

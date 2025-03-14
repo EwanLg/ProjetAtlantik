@@ -41,3 +41,4 @@ C:\Users\le_gall\source\repos\ProjetAtlantik\ProjetAtlantik\bin\Debug\System.Num
 C:\Users\le_gall\source\repos\ProjetAtlantik\ProjetAtlantik\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\le_gall\source\repos\ProjetAtlantik\ProjetAtlantik\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\le_gall\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAt.03686A27.Up2Date
+C:\Users\le_gall\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAjouterPort.resources

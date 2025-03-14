@@ -30,12 +30,13 @@
         {
             this.btnAjouterSecteur = new System.Windows.Forms.Button();
             this.tbxAjouterSecteur = new System.Windows.Forms.TextBox();
+            this.lblAjouterSecteur = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAjouterSecteur
             // 
             this.btnAjouterSecteur.AccessibleName = "btnAjouterSecteur";
-            this.btnAjouterSecteur.Location = new System.Drawing.Point(103, 107);
+            this.btnAjouterSecteur.Location = new System.Drawing.Point(153, 128);
             this.btnAjouterSecteur.Name = "btnAjouterSecteur";
             this.btnAjouterSecteur.Size = new System.Drawing.Size(75, 23);
             this.btnAjouterSecteur.TabIndex = 0;
@@ -46,11 +47,20 @@
             // tbxAjouterSecteur
             // 
             this.tbxAjouterSecteur.AccessibleName = "tbxAjouterSecteur";
-            this.tbxAjouterSecteur.Location = new System.Drawing.Point(93, 81);
+            this.tbxAjouterSecteur.Location = new System.Drawing.Point(143, 102);
             this.tbxAjouterSecteur.Name = "tbxAjouterSecteur";
             this.tbxAjouterSecteur.Size = new System.Drawing.Size(100, 20);
             this.tbxAjouterSecteur.TabIndex = 1;
-            this.tbxAjouterSecteur.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // lblAjouterSecteur
+            // 
+            this.lblAjouterSecteur.AccessibleName = "lblAjouterSecteur";
+            this.lblAjouterSecteur.AutoSize = true;
+            this.lblAjouterSecteur.Location = new System.Drawing.Point(35, 105);
+            this.lblAjouterSecteur.Name = "lblAjouterSecteur";
+            this.lblAjouterSecteur.Size = new System.Drawing.Size(102, 13);
+            this.lblAjouterSecteur.TabIndex = 2;
+            this.lblAjouterSecteur.Text = "Ajouter un secteur : ";
             // 
             // FormAjouterSecteur
             // 
@@ -58,6 +68,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblAjouterSecteur);
             this.Controls.Add(this.tbxAjouterSecteur);
             this.Controls.Add(this.btnAjouterSecteur);
             this.Name = "FormAjouterSecteur";
@@ -71,6 +82,7 @@
 
         private System.Windows.Forms.Button btnAjouterSecteur;
         private System.Windows.Forms.TextBox tbxAjouterSecteur;
+        private System.Windows.Forms.Label lblAjouterSecteur;
     }
 }
 
