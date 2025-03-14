@@ -38,5 +38,10 @@ namespace ProjetAtlantik
                 MessageBox.Show("Erreur d'insertion : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void FormAjouterPort_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
