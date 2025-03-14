@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\le_gall\\source\\repos\\ProjetAtlantik\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\users\\le_gall\\source\\repos\\projetatlantik\\projetatlantik\\formajoutersecteur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formajoutersecteur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\users\\le_gall\\source\\repos\\projetatlantik\\projetatlantik\\formajoutersecteur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formajoutersecteur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 180,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormAjouterSecteur.cs",
+              "DocumentMoniker": "C:\\Users\\le_gall\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\FormAjouterSecteur.cs",
+              "RelativeDocumentMoniker": "ProjetAtlantik\\FormAjouterSecteur.cs",
+              "ToolTip": "C:\\Users\\le_gall\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\FormAjouterSecteur.cs",
+              "RelativeToolTip": "ProjetAtlantik\\FormAjouterSecteur.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAA3wBoAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T12:50:36.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormAjouterSecteur.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\le_gall\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\FormAjouterSecteur.cs",
+              "RelativeDocumentMoniker": "ProjetAtlantik\\FormAjouterSecteur.cs",
+              "ToolTip": "C:\\Users\\le_gall\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\FormAjouterSecteur.cs [Design]",
+              "RelativeToolTip": "ProjetAtlantik\\FormAjouterSecteur.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T12:48:45.819Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

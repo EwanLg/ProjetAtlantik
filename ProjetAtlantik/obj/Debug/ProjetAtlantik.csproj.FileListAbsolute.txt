@@ -1,0 +1,10 @@
+C:\Users\le_gall\source\repos\ProjetAtlantik\ProjetAtlantik\bin\Debug\ProjetAtlantik.exe.config
+C:\Users\le_gall\source\repos\ProjetAtlantik\ProjetAtlantik\bin\Debug\ProjetAtlantik.exe
+C:\Users\le_gall\source\repos\ProjetAtlantik\ProjetAtlantik\bin\Debug\ProjetAtlantik.pdb
+C:\Users\le_gall\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.csproj.AssemblyReference.cache
+C:\Users\le_gall\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAjouterSecteur.resources
+C:\Users\le_gall\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.Properties.Resources.resources
+C:\Users\le_gall\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.csproj.GenerateResource.cache
+C:\Users\le_gall\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.csproj.CoreCompileInputs.cache
+C:\Users\le_gall\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.exe
+C:\Users\le_gall\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.pdb
