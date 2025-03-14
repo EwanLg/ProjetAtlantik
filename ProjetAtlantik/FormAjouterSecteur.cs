@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ProjetAtlantik
 {
     public partial class FormAjouterSecteur : Form
     {
-        public FormAjouterSecteur()
+        private MySqlConnection conn;
+        public FormAjouterSecteur(MySqlConnection connection)
         {
             InitializeComponent();
+            conn = connection;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -24,7 +27,12 @@ namespace ProjetAtlantik
 
         private void btnAjouterSecteur_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(tbxAjouterSecteur.Text);
+            string query = "INSERT INTO secteur (nom) VALUES (@NomSecteur)";
+            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@NomSecteur", tbxAjouterSecteur.Text);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

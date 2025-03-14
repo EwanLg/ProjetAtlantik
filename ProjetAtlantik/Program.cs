@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,21 @@ namespace ProjetAtlantik
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormAjouterSecteur());
+
+            MySqlConnection maCnx = null;
+            string connectionString = "server=localhost;database=Atlantik;user=root;password=;";
+            try
+            {
+                maCnx = new MySqlConnection(connectionString);
+                maCnx.Open();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Erreur de connexion à la base de données : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Application.Run(new FormAjouterSecteur(maCnx));
+            
         }
     }
 }
