@@ -116,6 +116,13 @@
     <Compile Include="FormLiaison.Designer.cs">
       <DependentUpon>FormLiaison.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTarifs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTarifs.Designer.cs">
+      <DependentUpon>FormTarifs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="periode.cs" />
     <Compile Include="Port.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -128,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLiaison.resx">
       <DependentUpon>FormLiaison.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTarifs.resx">
+      <DependentUpon>FormTarifs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

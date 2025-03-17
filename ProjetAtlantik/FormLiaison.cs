@@ -16,7 +16,6 @@ namespace ProjetAtlantik
         private MySqlConnection maCnx;
         private List<Secteur> secteurs = new List<Secteur>();
         private List<Port> ports = new List<Port>();
-        private Dictionary<int, List<Port>> portsParSecteur = new Dictionary<int, List<Port>>();
         public FormLiaison(MySqlConnection connexion)
         {
             InitializeComponent();
