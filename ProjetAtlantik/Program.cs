@@ -31,7 +31,8 @@ namespace ProjetAtlantik
                 return;
             }
             /// Application.Run(new FormAjouterSecteur(maCnx));
-            Application.Run(new FormAjouterPort(maCnx));
+            /// Application.Run(new FormAjouterPort(maCnx));
+            Application.Run(new FormLiaison(maCnx));
 
         }
     }

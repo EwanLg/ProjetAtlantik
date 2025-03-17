@@ -110,6 +110,12 @@
     <Compile Include="FormAjouterSecteur.Designer.cs">
       <DependentUpon>FormAjouterSecteur.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLiaison.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLiaison.Designer.cs">
+      <DependentUpon>FormLiaison.cs</DependentUpon>
+    </Compile>
     <Compile Include="Port.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAjouterSecteur.resx">
       <DependentUpon>FormAjouterSecteur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLiaison.resx">
+      <DependentUpon>FormLiaison.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
