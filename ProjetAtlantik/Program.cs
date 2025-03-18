@@ -9,9 +9,6 @@ namespace ProjetAtlantik
 {
     internal static class Program
     {
-        /// <summary>
-        /// Point d'entrée principal de l'application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
@@ -20,8 +17,7 @@ namespace ProjetAtlantik
 
             MySqlConnection maCnx;
             string connectionString = "server=localhost;database=Atlantik;user=root;password=;";
-                maCnx = new MySqlConnection(connectionString);
-            ///Application.Run(new FormLiaison(maCnx));
+            maCnx = new MySqlConnection(connectionString);
             Application.Run(new FormTarifs(maCnx));
 
         }
