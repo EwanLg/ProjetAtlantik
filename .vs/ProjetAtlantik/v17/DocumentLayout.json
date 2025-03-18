@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\ewanl\\source\\repos\\ProjetAtlantik\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ewanl\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\FormTarifs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ProjetAtlantik\\FormTarifs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\users\\ewanl\\source\\repos\\projetatlantik\\projetatlantik\\formtarifs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formtarifs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ewanl\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ProjetAtlantik\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\users\\ewanl\\source\\repos\\projetatlantik\\projetatlantik\\formtarifs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formtarifs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ewanl\\source\\repos\\ProjetAtlantik\\projetatlantik\\formtarifs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:projetatlantik\\formtarifs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\users\\ewanl\\source\\repos\\projetatlantik\\projetatlantik\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,20 +22,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 352,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ewanl\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\Program.cs",
-              "RelativeDocumentMoniker": "ProjetAtlantik\\Program.cs",
-              "ToolTip": "C:\\Users\\ewanl\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\Program.cs",
-              "RelativeToolTip": "ProjetAtlantik\\Program.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABYAAAA+AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T15:41:49.515Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -44,21 +32,35 @@
               "RelativeDocumentMoniker": "ProjetAtlantik\\FormTarifs.cs",
               "ToolTip": "C:\\Users\\ewanl\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\FormTarifs.cs",
               "RelativeToolTip": "ProjetAtlantik\\FormTarifs.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAMwCQAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAqwIsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T14:50:47.237Z",
+              "WhenOpened": "2025-03-18T20:54:21.389Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ewanl\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\Program.cs",
+              "RelativeDocumentMoniker": "ProjetAtlantik\\Program.cs",
+              "ToolTip": "C:\\Users\\ewanl\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\Program.cs",
+              "RelativeToolTip": "ProjetAtlantik\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T20:53:02.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "FormTarifs.cs [Design]",
               "DocumentMoniker": "C:\\Users\\ewanl\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\FormTarifs.cs",
               "RelativeDocumentMoniker": "ProjetAtlantik\\FormTarifs.cs",
-              "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormTarifs.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormTarifs.cs [Design]",
+              "ToolTip": "C:\\Users\\ewanl\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\FormTarifs.cs [Design]",
+              "RelativeToolTip": "ProjetAtlantik\\FormTarifs.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T14:22:44.404Z"
+              "WhenOpened": "2025-03-18T20:51:29.235Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace ProjetAtlantik
 {
@@ -13,19 +14,23 @@ namespace ProjetAtlantik
             InitializeComponent();
             this.maCnx = connexion;
         }
+
         private void FormTarifs_Load(object sender, EventArgs e)
         {
-            maCnx.Open();
+            if (maCnx.State == ConnectionState.Closed)
+            {
+                maCnx.Open();
+            }
+
             try
             {
                 ChargerSecteurs();
                 ChargerPorts();
                 ChargerPeriode();
-                Button btn;
-                int i;
-                for (i = 1; i <= 5; i++)
+
+                for (int i = 1; i <= 5; i++)
                 {
-                    btn = new Button();
+                    Button btn = new Button();
                     btn.Text = i.ToString();
                     btn.Location = new Point(0, i * 25);
                     gbxTarifsType.Controls.Add(btn);
@@ -37,13 +42,22 @@ namespace ProjetAtlantik
             }
             finally
             {
-                maCnx.Close();
+                if (maCnx.State == ConnectionState.Open)
+                {
+                    maCnx.Close();
+                }
             }
         }
+
         private void ChargerSecteurs()
         {
             string query = "SELECT noSecteur, nom FROM secteur";
-            maCnx.Open();
+
+            if (maCnx.State == ConnectionState.Closed)
+            {
+                maCnx.Open();
+            }
+
             try
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, maCnx))
@@ -58,13 +72,22 @@ namespace ProjetAtlantik
             }
             finally
             {
-                maCnx.Close();
+                if (maCnx.State == ConnectionState.Open)
+                {
+                    maCnx.Close();
+                }
             }
         }
+
         private void ChargerPorts()
         {
             string query = "SELECT noPort, nom FROM port";
-            maCnx.Open();
+
+            if (maCnx.State == ConnectionState.Closed)
+            {
+                maCnx.Open();
+            }
+
             try
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, maCnx))
@@ -79,13 +102,22 @@ namespace ProjetAtlantik
             }
             finally
             {
-                maCnx.Close();
+                if (maCnx.State == ConnectionState.Open)
+                {
+                    maCnx.Close();
+                }
             }
         }
+
         private void ChargerPeriode()
         {
             string query = "SELECT datedebut, datefin, noperiode FROM periode";
-            maCnx.Open();
+
+            if (maCnx.State == ConnectionState.Closed)
+            {
+                maCnx.Open();
+            }
+
             try
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, maCnx))
@@ -100,7 +132,10 @@ namespace ProjetAtlantik
             }
             finally
             {
-                maCnx.Close();
+                if (maCnx.State == ConnectionState.Open)
+                {
+                    maCnx.Close();
+                }
             }
         }
     }
