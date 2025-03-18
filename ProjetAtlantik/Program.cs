@@ -20,16 +20,7 @@ namespace ProjetAtlantik
 
             MySqlConnection maCnx;
             string connectionString = "server=localhost;database=Atlantik;user=root;password=;";
-            try
-            {
                 maCnx = new MySqlConnection(connectionString);
-                maCnx.Open();
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Erreur de connexion à la base de données : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             ///Application.Run(new FormLiaison(maCnx));
             Application.Run(new FormTarifs(maCnx));
 

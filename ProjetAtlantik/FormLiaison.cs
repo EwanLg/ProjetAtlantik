@@ -14,8 +14,6 @@ namespace ProjetAtlantik
     public partial class FormLiaison : Form
     {
         private MySqlConnection maCnx;
-        private List<Secteur> secteurs = new List<Secteur>();
-        private List<Port> ports = new List<Port>();
         public FormLiaison(MySqlConnection connexion)
         {
             InitializeComponent();
@@ -34,7 +32,6 @@ namespace ProjetAtlantik
                 while (jeuEnr.Read())
                 {
                     Secteur s = new Secteur(jeuEnr.GetString("nom"), jeuEnr.GetInt32("noSecteur"));
-                    secteurs.Add(s);
                     lbxLiaisonSecteur.Items.Add(s);
                 }
             }
@@ -50,39 +47,11 @@ namespace ProjetAtlantik
                 while (jeuEnr.Read())
                 {
                     Port p = new Port(jeuEnr.GetString("nom"), jeuEnr.GetInt32("noPort"));
-                    ports.Add(p);
                     cmbLiaisonDepart.Items.Add(p);
                     cmbLiaisonArrivee.Items.Add(p);
                 }
             }
         }
-
-        private void btnLiaisonNouvPort_Click(object sender, EventArgs e)
-        {
-            FormAjouterPort form = new FormAjouterPort(maCnx);
-            form.FormClosed += FormAjouterPort_FormClosed;
-            form.ShowDialog();
-        }
-        private void FormAjouterPort_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            ports.Clear();
-            cmbLiaisonDepart.Items.Clear();
-            cmbLiaisonArrivee.Items.Clear();
-            ChargerPorts();
-        }
-        private void btnLiaisonNouvSecteur_Click(object sender, EventArgs e)
-        {
-            FormAjouterSecteur form = new FormAjouterSecteur(maCnx);
-            form.FormClosed += FormAjouterSecteur_FormClosed;
-            form.ShowDialog();
-        }
-        private void FormAjouterSecteur_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            secteurs.Clear();
-            lbxLiaisonSecteur.Items.Clear();
-            ChargerSecteurs();
-    }
-
         private void btnLiaisonAjouter_Click(object sender, EventArgs e)
         {
             if (cmbLiaisonDepart.SelectedItem == null || cmbLiaisonArrivee.SelectedItem == null || lbxLiaisonSecteur.SelectedItem == null)

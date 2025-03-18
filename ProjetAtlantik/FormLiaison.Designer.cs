@@ -37,8 +37,6 @@
             this.lblLiaisonDepart = new System.Windows.Forms.Label();
             this.lblLiaisonArrivee = new System.Windows.Forms.Label();
             this.lblLiaisonDistance = new System.Windows.Forms.Label();
-            this.btnLiaisonNouvPort = new System.Windows.Forms.Button();
-            this.btnLiaisonNouvSecteur = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmbLiaisonDepart
@@ -127,36 +125,12 @@
             this.lblLiaisonDistance.TabIndex = 8;
             this.lblLiaisonDistance.Text = "Distance : ";
             // 
-            // btnLiaisonNouvPort
-            // 
-            this.btnLiaisonNouvPort.AccessibleName = "btnLiaisonNouvPort";
-            this.btnLiaisonNouvPort.Location = new System.Drawing.Point(65, 336);
-            this.btnLiaisonNouvPort.Name = "btnLiaisonNouvPort";
-            this.btnLiaisonNouvPort.Size = new System.Drawing.Size(120, 23);
-            this.btnLiaisonNouvPort.TabIndex = 9;
-            this.btnLiaisonNouvPort.Text = "Nouveau port";
-            this.btnLiaisonNouvPort.UseVisualStyleBackColor = true;
-            this.btnLiaisonNouvPort.Click += new System.EventHandler(this.btnLiaisonNouvPort_Click);
-            // 
-            // btnLiaisonNouvSecteur
-            // 
-            this.btnLiaisonNouvSecteur.AccessibleName = "btnLiaisonNouvSecteur";
-            this.btnLiaisonNouvSecteur.Location = new System.Drawing.Point(65, 365);
-            this.btnLiaisonNouvSecteur.Name = "btnLiaisonNouvSecteur";
-            this.btnLiaisonNouvSecteur.Size = new System.Drawing.Size(120, 23);
-            this.btnLiaisonNouvSecteur.TabIndex = 10;
-            this.btnLiaisonNouvSecteur.Text = "Nouveau secteur";
-            this.btnLiaisonNouvSecteur.UseVisualStyleBackColor = true;
-            this.btnLiaisonNouvSecteur.Click += new System.EventHandler(this.btnLiaisonNouvSecteur_Click);
-            // 
             // FormLiaison
             // 
             this.AccessibleName = "FormLiaison";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnLiaisonNouvSecteur);
-            this.Controls.Add(this.btnLiaisonNouvPort);
             this.Controls.Add(this.lblLiaisonDistance);
             this.Controls.Add(this.lblLiaisonArrivee);
             this.Controls.Add(this.lblLiaisonDepart);
@@ -184,7 +158,5 @@
         private System.Windows.Forms.Label lblLiaisonDepart;
         private System.Windows.Forms.Label lblLiaisonArrivee;
         private System.Windows.Forms.Label lblLiaisonDistance;
-        private System.Windows.Forms.Button btnLiaisonNouvPort;
-        private System.Windows.Forms.Button btnLiaisonNouvSecteur;
     }
 }

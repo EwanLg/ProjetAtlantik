@@ -14,32 +14,44 @@ namespace ProjetAtlantik
     public partial class FormTarifs : Form
     {
         private MySqlConnection maCnx;
-        private List<Secteur> secteurs = new List<Secteur>();
-        private List<Port> ports = new List<Port>();
-        private List<Periode> periodes = new List<Periode>();
         public FormTarifs(MySqlConnection connexion)
         {
             InitializeComponent();
             this.maCnx = connexion;
+            
+        }
+        private void FormTarifs_Load(object sender, EventArgs e)
+        {
+            maCnx.Open();
             ChargerSecteurs();
             ChargerPorts();
             ChargerPeriode();
+            Button btn;
+            int i;
+            for (i = 1; i <= 5; i++)
+            {
+                btn = new Button();
+                btn.Text = i.ToString();
+                btn.Location = new Point(0, i * 25);
+                gbxTarifsType.Controls.Add(btn);
+            }
         }
         private void ChargerSecteurs()
         {
 
             string query = "SELECT noSecteur, nom FROM secteur";
 
-            using (MySqlCommand cmd = new MySqlCommand(query, maCnx))
-            using (MySqlDataReader jeuEnr = cmd.ExecuteReader())
+            MySqlCommand cmd = new MySqlCommand(query, maCnx);
+            MySqlDataReader jeuEnr = cmd.ExecuteReader();
             {
                 while (jeuEnr.Read())
                 {
                     Secteur s = new Secteur(jeuEnr.GetString("nom"), jeuEnr.GetInt32("noSecteur"));
-                    secteurs.Add(s);
                     lbxTarifsSecteur.Items.Add(s);
                 }
             }
+            jeuEnr.Close();
+
         }
         private void ChargerPorts()
         {
@@ -52,7 +64,6 @@ namespace ProjetAtlantik
                 while (jeuEnr.Read())
                 {
                     Port p = new Port(jeuEnr.GetString("nom"), jeuEnr.GetInt32("noPort"));
-                    ports.Add(p);
                     cmbTarifsPort.Items.Add(p);
                 }
             }
@@ -68,10 +79,10 @@ namespace ProjetAtlantik
                 while (jeuEnr.Read())
                 {
                     Periode pe = new Periode(jeuEnr.GetDateTime("datedebut"), jeuEnr.GetDateTime("datefin"), jeuEnr.GetInt32("noPeriode"));
-                    periodes.Add(pe);
                     cmbTarifsPeriode.Items.Add(pe);
                 }
             }
         }
+        
     }
 }
