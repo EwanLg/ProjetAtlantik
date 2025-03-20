@@ -1,19 +1,13 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ProjetAtlantik
 {
     public partial class FormLiaison : Form
     {
         private MySqlConnection maCnx;
+
         public FormLiaison(MySqlConnection connexion)
         {
             InitializeComponent();
@@ -21,37 +15,66 @@ namespace ProjetAtlantik
             ChargerSecteurs();
             ChargerPorts();
         }
+
         private void ChargerSecteurs()
         {
-
             string query = "SELECT noSecteur, nom FROM secteur";
-
-            using (MySqlCommand cmd = new MySqlCommand(query, maCnx))
-            using (MySqlDataReader jeuEnr = cmd.ExecuteReader())
+            try
             {
-                while (jeuEnr.Read())
+                if (maCnx.State == System.Data.ConnectionState.Closed)
+                    maCnx.Open();
+
+                MySqlCommand cmd = new MySqlCommand(query, maCnx);
+                MySqlDataReader jeuEnr = cmd.ExecuteReader();
                 {
-                    Secteur s = new Secteur(jeuEnr.GetString("nom"), jeuEnr.GetInt32("noSecteur"));
-                    lbxLiaisonSecteur.Items.Add(s);
+                    while (jeuEnr.Read())
+                    {
+                        Secteur s = new Secteur(jeuEnr.GetString("nom"), jeuEnr.GetInt32("noSecteur"));
+                        lbxLiaisonSecteur.Items.Add(s);
+                    }
                 }
             }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Erreur de connexion ou de lecture des secteurs : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (maCnx.State == System.Data.ConnectionState.Open)
+                    maCnx.Close();
+            }
         }
+
         private void ChargerPorts()
         {
-
             string query = "SELECT noPort, nom FROM port";
-
-            using (MySqlCommand cmd = new MySqlCommand(query, maCnx))
-            using (MySqlDataReader jeuEnr = cmd.ExecuteReader())
+            try
             {
-                while (jeuEnr.Read())
+                if (maCnx.State == System.Data.ConnectionState.Closed)
+                    maCnx.Open();
+
+                MySqlCommand cmd = new MySqlCommand(query, maCnx);
+                MySqlDataReader jeuEnr = cmd.ExecuteReader();
                 {
-                    Port p = new Port(jeuEnr.GetString("nom"), jeuEnr.GetInt32("noPort"));
-                    cmbLiaisonDepart.Items.Add(p);
-                    cmbLiaisonArrivee.Items.Add(p);
+                    while (jeuEnr.Read())
+                    {
+                        Port p = new Port(jeuEnr.GetString("nom"), jeuEnr.GetInt32("noPort"));
+                        cmbLiaisonDepart.Items.Add(p);
+                        cmbLiaisonArrivee.Items.Add(p);
+                    }
                 }
             }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Erreur de connexion ou de lecture des ports : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (maCnx.State == System.Data.ConnectionState.Open)
+                    maCnx.Close();
+            }
         }
+
         private void btnLiaisonAjouter_Click(object sender, EventArgs e)
         {
             if (cmbLiaisonDepart.SelectedItem == null || cmbLiaisonArrivee.SelectedItem == null || lbxLiaisonSecteur.SelectedItem == null)
@@ -59,6 +82,7 @@ namespace ProjetAtlantik
                 MessageBox.Show("Veuillez sélectionner un port de départ, un port d'arrivée et un secteur.");
                 return;
             }
+
             Port portDepart = (Port)cmbLiaisonDepart.SelectedItem;
             Port portArrivee = (Port)cmbLiaisonArrivee.SelectedItem;
             Secteur secteur = (Secteur)lbxLiaisonSecteur.SelectedItem;
@@ -67,26 +91,33 @@ namespace ProjetAtlantik
                 MessageBox.Show("Veuillez entrer une distance valide.");
                 return;
             }
+
             string query = "INSERT INTO liaison (NOPORT_DEPART, NOSECTEUR, NOPORT_ARRIVEE, DISTANCE) " +
                            "VALUES (@portDepart, @secteur, @portArrivee, @distance)";
-
-            using (MySqlCommand cmd = new MySqlCommand(query, maCnx))
+            try
             {
-                cmd.Parameters.AddWithValue("@portDepart", portDepart.GetNoPort());
-                cmd.Parameters.AddWithValue("@secteur", secteur.GetNoSecteur());
-                cmd.Parameters.AddWithValue("@portArrivee", portArrivee.GetNoPort());
-                cmd.Parameters.AddWithValue("@distance", distance);
-                try
+                if (maCnx.State == System.Data.ConnectionState.Closed)
+                    maCnx.Open();
+
+                using (MySqlCommand cmd = new MySqlCommand(query, maCnx))
                 {
+                    cmd.Parameters.AddWithValue("@portDepart", portDepart.GetNoPort());
+                    cmd.Parameters.AddWithValue("@secteur", secteur.GetNoSecteur());
+                    cmd.Parameters.AddWithValue("@portArrivee", portArrivee.GetNoPort());
+                    cmd.Parameters.AddWithValue("@distance", distance);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Liaison ajoutée avec succès !");
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Erreur lors de l'ajout de la liaison : {ex.Message}");
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de l'ajout de la liaison : {ex.Message}");
+            }
+            finally
+            {
+                if (maCnx.State == System.Data.ConnectionState.Open)
+                    maCnx.Close();
             }
         }
     }
 }
-

@@ -1,35 +1,43 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace ProjetAtlantik
 {
     public partial class FormAjouterPort : Form
     {
-        private MySqlConnection conn;
-        public FormAjouterPort(MySqlConnection connection)
+        private MySqlConnection maCnx;
+
+        public FormAjouterPort(MySqlConnection connexion)
         {
             InitializeComponent();
-            conn = connection;
+            maCnx = connexion;
         }
 
         private void btnAjouterPort_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(tbxAjouterPort.Text))
+            {
+                MessageBox.Show("Le nom du port ne peut pas être vide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string query = "INSERT INTO port (nom) VALUES (@NomPort)";
+
             try
             {
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                if (maCnx.State == ConnectionState.Closed)
+                {
+                    maCnx.Open();
+                }
+
+                MySqlCommand cmd = new MySqlCommand(query, maCnx);
                 {
                     cmd.Parameters.AddWithValue("@NomPort", tbxAjouterPort.Text);
                     cmd.ExecuteNonQuery();
                 }
+
                 MessageBox.Show("Port ajouté avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tbxAjouterPort.Clear();
             }
@@ -37,11 +45,13 @@ namespace ProjetAtlantik
             {
                 MessageBox.Show("Erreur d'insertion : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void FormAjouterPort_Load(object sender, EventArgs e)
-        {
-
+            finally
+            {
+                if (maCnx.State == ConnectionState.Open)
+                {
+                    maCnx.Close();
+                }
+            }
         }
     }
 }
