@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lbxTarifsSecteur = new System.Windows.Forms.ListBox();
-            this.cmbTarifsPort = new System.Windows.Forms.ComboBox();
+            this.cmbTarifsLiaison = new System.Windows.Forms.ComboBox();
             this.cmbTarifsPeriode = new System.Windows.Forms.ComboBox();
             this.btnTarifsAjouter = new System.Windows.Forms.Button();
             this.lblTarifsPeriode = new System.Windows.Forms.Label();
@@ -47,14 +47,14 @@
             this.lbxTarifsSecteur.Size = new System.Drawing.Size(120, 212);
             this.lbxTarifsSecteur.TabIndex = 0;
             // 
-            // cmbTarifsPort
+            // cmbTarifsLiaison
             // 
-            this.cmbTarifsPort.AccessibleName = "cmbTarifsPort";
-            this.cmbTarifsPort.FormattingEnabled = true;
-            this.cmbTarifsPort.Location = new System.Drawing.Point(43, 306);
-            this.cmbTarifsPort.Name = "cmbTarifsPort";
-            this.cmbTarifsPort.Size = new System.Drawing.Size(120, 21);
-            this.cmbTarifsPort.TabIndex = 1;
+            this.cmbTarifsLiaison.AccessibleName = "cmbTarifsLiaison";
+            this.cmbTarifsLiaison.FormattingEnabled = true;
+            this.cmbTarifsLiaison.Location = new System.Drawing.Point(43, 306);
+            this.cmbTarifsLiaison.Name = "cmbTarifsLiaison";
+            this.cmbTarifsLiaison.Size = new System.Drawing.Size(120, 21);
+            this.cmbTarifsLiaison.TabIndex = 1;
             // 
             // cmbTarifsPeriode
             // 
@@ -126,7 +126,7 @@
             this.Controls.Add(this.lblTarifsPeriode);
             this.Controls.Add(this.btnTarifsAjouter);
             this.Controls.Add(this.cmbTarifsPeriode);
-            this.Controls.Add(this.cmbTarifsPort);
+            this.Controls.Add(this.cmbTarifsLiaison);
             this.Controls.Add(this.lbxTarifsSecteur);
             this.Name = "FormTarifs";
             this.Text = "FormTarifs";
@@ -139,7 +139,7 @@
         #endregion
 
         private System.Windows.Forms.ListBox lbxTarifsSecteur;
-        private System.Windows.Forms.ComboBox cmbTarifsPort;
+        private System.Windows.Forms.ComboBox cmbTarifsLiaison;
         private System.Windows.Forms.ComboBox cmbTarifsPeriode;
         private System.Windows.Forms.Button btnTarifsAjouter;
         private System.Windows.Forms.Label lblTarifsPeriode;

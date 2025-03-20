@@ -122,7 +122,8 @@
     <Compile Include="FormTarifs.Designer.cs">
       <DependentUpon>FormTarifs.cs</DependentUpon>
     </Compile>
-    <Compile Include="periode.cs" />
+    <Compile Include="Liaison.cs" />
+    <Compile Include="Periode.cs" />
     <Compile Include="Port.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

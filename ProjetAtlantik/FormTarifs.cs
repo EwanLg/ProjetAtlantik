@@ -25,7 +25,7 @@ namespace ProjetAtlantik
             try
             {
                 ChargerSecteurs();
-                ChargerPorts();
+                ChargerLiaisons();
                 ChargerPeriode();
                 if (maCnx.State == ConnectionState.Closed)
                     maCnx.Open();
@@ -50,6 +50,7 @@ namespace ProjetAtlantik
                         lblTarifsTypeCategorie.Text = jeuEnr["lettrecategorie"] +  jeuEnr["notype"].ToString() + " - " + jeuEnr["libelle"];
                         lblTarifsTypeCategorie.Location = new Point(5, i * 25);
                         gbxTarifsType.Controls.Add(lblTarifsTypeCategorie);
+
                         TextBox tbxTarifsTypeCategorie = new TextBox();
                         tbxTarifsTypeCategorie.Tag = jeuEnr["lettrecategorie"] + jeuEnr["notype"].ToString();
                         tbxTarifsTypeCategorie.Location = new Point(125, i * 25);
@@ -89,8 +90,13 @@ namespace ProjetAtlantik
                     {
                         Secteur s = new Secteur(jeuEnr.GetString("nom"), jeuEnr.GetInt32("noSecteur"));
                         lbxTarifsSecteur.Items.Add(s);
+
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors du chargement des données : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -101,9 +107,9 @@ namespace ProjetAtlantik
             }
         }
 
-        private void ChargerPorts()
+        private void ChargerLiaisons()
         {
-            string query = "SELECT noPort, nom FROM port";
+            string query = "SELECT l.noliaison, l.noport_depart, l.nosecteur, l.noport_arrivee, p1.nom AS nom_port_depart, p2.nom AS nom_port_arrivee FROM liaison l INNER JOIN port p1 ON l.noport_depart = p1.noport INNER JOIN port p2 ON l.noport_arrivee = p2.noport";
 
             if (maCnx.State == ConnectionState.Closed)
             {
@@ -117,10 +123,16 @@ namespace ProjetAtlantik
                 {
                     while (jeuEnr.Read())
                     {
-                        Port p = new Port(jeuEnr.GetString("nom"), jeuEnr.GetInt32("noPort"));
-                        cmbTarifsPort.Items.Add(p);
+                        Liaison l = new Liaison(jeuEnr.GetInt32("noport_depart"), jeuEnr.GetInt32("noport_arrivee"), jeuEnr.GetInt32("nosecteur"), jeuEnr.GetInt32("noliaison"));
+                        string nomPortDepart = jeuEnr.GetString("nom_port_depart");
+                        string nomPortArrivee = jeuEnr.GetString("nom_port_arrivee");
+                        cmbTarifsLiaison.Items.Add(nomPortDepart + " -> " + nomPortArrivee);
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors du chargement des données : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -151,6 +163,10 @@ namespace ProjetAtlantik
                         cmbTarifsPeriode.Items.Add(pe);
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors du chargement des données : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
