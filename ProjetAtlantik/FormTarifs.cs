@@ -266,7 +266,7 @@ namespace ProjetAtlantik
 
                     try
                     {
-                        if (maCnx.State == System.Data.ConnectionState.Closed)
+                        if (maCnx.State == ConnectionState.Closed)
                             maCnx.Open();
 
                         using (MySqlCommand cmd = new MySqlCommand(query, maCnx))
@@ -285,7 +285,7 @@ namespace ProjetAtlantik
                     }
                     finally
                     {
-                        if (maCnx.State == System.Data.ConnectionState.Open)
+                        if (maCnx.State == ConnectionState.Open)
                             maCnx.Close();
                     }
                 }
