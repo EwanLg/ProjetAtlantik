@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Collections.Generic;
 
 namespace ProjetAtlantik
 {
@@ -136,10 +137,10 @@ namespace ProjetAtlantik
                     while (jeuEnr.Read())
                     {
                         hasResults = true;
-                        Liaison l = new Liaison(jeuEnr.GetInt32("noport_depart"), jeuEnr.GetInt32("noport_arrivee"), jeuEnr.GetInt32("nosecteur"), jeuEnr.GetInt32("noliaison"));
                         string nomPortDepart = jeuEnr.GetString("nom_port_depart");
                         string nomPortArrivee = jeuEnr.GetString("nom_port_arrivee");
-                        cmbTarifsLiaison.Items.Add(nomPortDepart + " -> " + nomPortArrivee);
+                        Liaison l = new Liaison(jeuEnr.GetInt32("noport_depart"), jeuEnr.GetInt32("noport_arrivee"), jeuEnr.GetInt32("nosecteur"), jeuEnr.GetInt32("noliaison"), nomPortDepart, nomPortArrivee);
+                        cmbTarifsLiaison.Items.Add(l);
                     }
                     jeuEnr.Close();
                     if (!hasResults)
@@ -217,7 +218,79 @@ namespace ProjetAtlantik
 
         private void btnTarifsAjouter_Click(object sender, EventArgs e)
         {
+            if (lbxTarifsSecteur.SelectedItem == null || cmbTarifsLiaison.SelectedItem == null || cmbTarifsPeriode.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un secteur, une liaison et une période.");
+                return;
+            }
 
+            Periode periode = (Periode)cmbTarifsPeriode.SelectedItem;
+            Liaison liaison = (Liaison)cmbTarifsLiaison.SelectedItem;
+
+            bool tarifSaisi = false;
+            List<TextBox> textBoxes = new List<TextBox>();
+
+            foreach (Control control in gbxTarifsType.Controls)
+            {
+                if (control is TextBox tbxTarif)
+                {
+                    textBoxes.Add(tbxTarif);
+                }
+            }
+
+            foreach (TextBox tbxTarif in textBoxes)
+            {
+                if (!string.IsNullOrEmpty(tbxTarif.Text))
+                {
+                    tarifSaisi = true;
+                    break;
+                }
+            }
+
+            if (!tarifSaisi)
+            {
+                MessageBox.Show("Veuillez renseigner au moins un tarif.");
+                return;
+            }
+
+            foreach (TextBox tbxTarif in textBoxes)
+            {
+                string lettreCategorie = tbxTarif.Tag.ToString().Substring(0, 1);
+                string type = tbxTarif.Tag.ToString().Substring(1); 
+                double tarif;
+
+                if (double.TryParse(tbxTarif.Text, out tarif))
+                {
+                    string query = "INSERT INTO tarifer (NOPERIODE, LETTRECATEGORIE, NOTYPE, NOLIAISON, TARIF) " +
+                                   "VALUES (@noperiode, @lettrecategorie, @notype, @noliaison, @tarif)";
+
+                    try
+                    {
+                        if (maCnx.State == System.Data.ConnectionState.Closed)
+                            maCnx.Open();
+
+                        using (MySqlCommand cmd = new MySqlCommand(query, maCnx))
+                        {
+                            cmd.Parameters.AddWithValue("@noperiode", periode.GetNoPeriode());
+                            cmd.Parameters.AddWithValue("@lettrecategorie", lettreCategorie);
+                            cmd.Parameters.AddWithValue("@notype", type);
+                            cmd.Parameters.AddWithValue("@noliaison", liaison.GetNoLiaison());
+                            cmd.Parameters.AddWithValue("@tarif", tarif);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erreur lors de l'ajout du tarif : {ex.Message}");
+                    }
+                    finally
+                    {
+                        if (maCnx.State == System.Data.ConnectionState.Open)
+                            maCnx.Close();
+                    }
+                }
+            }
+            MessageBox.Show("Tarifs ajoutés avec succès !");
         }
     }
 }
