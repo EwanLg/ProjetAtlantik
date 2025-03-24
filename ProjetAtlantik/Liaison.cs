@@ -9,10 +9,10 @@ namespace ProjetAtlantik
 {
     internal class Liaison
     {
-        public int noPort_Depart;
-        public int noPort_Arrivee;
-        public int noSecteur;
-        public int noLiaison;
+        private int noPort_Depart;
+        private int noPort_Arrivee;
+        private int noSecteur;
+        private int noLiaison;
 
         public Liaison(int noPort_Depart, int noPort_Arrivee, int noSecteur, int noLiaison)
         {

@@ -44,8 +44,9 @@
             this.lbxTarifsSecteur.FormattingEnabled = true;
             this.lbxTarifsSecteur.Location = new System.Drawing.Point(43, 64);
             this.lbxTarifsSecteur.Name = "lbxTarifsSecteur";
-            this.lbxTarifsSecteur.Size = new System.Drawing.Size(120, 212);
+            this.lbxTarifsSecteur.Size = new System.Drawing.Size(175, 212);
             this.lbxTarifsSecteur.TabIndex = 0;
+            this.lbxTarifsSecteur.SelectedIndexChanged += new System.EventHandler(this.lbxTarifsSecteur_SelectedIndexChanged);
             // 
             // cmbTarifsLiaison
             // 
@@ -53,14 +54,15 @@
             this.cmbTarifsLiaison.FormattingEnabled = true;
             this.cmbTarifsLiaison.Location = new System.Drawing.Point(43, 306);
             this.cmbTarifsLiaison.Name = "cmbTarifsLiaison";
-            this.cmbTarifsLiaison.Size = new System.Drawing.Size(120, 21);
+            this.cmbTarifsLiaison.Size = new System.Drawing.Size(175, 21);
             this.cmbTarifsLiaison.TabIndex = 1;
+            this.cmbTarifsLiaison.SelectedIndexChanged += new System.EventHandler(this.cmbTarifsLiaison_SelectedIndexChanged);
             // 
             // cmbTarifsPeriode
             // 
             this.cmbTarifsPeriode.AccessibleName = "cmbTarifsPeriode";
             this.cmbTarifsPeriode.FormattingEnabled = true;
-            this.cmbTarifsPeriode.Location = new System.Drawing.Point(201, 362);
+            this.cmbTarifsPeriode.Location = new System.Drawing.Point(269, 362);
             this.cmbTarifsPeriode.Name = "cmbTarifsPeriode";
             this.cmbTarifsPeriode.Size = new System.Drawing.Size(173, 21);
             this.cmbTarifsPeriode.TabIndex = 2;
@@ -74,12 +76,13 @@
             this.btnTarifsAjouter.TabIndex = 3;
             this.btnTarifsAjouter.Text = "Ajouter";
             this.btnTarifsAjouter.UseVisualStyleBackColor = true;
+            this.btnTarifsAjouter.Click += new System.EventHandler(this.btnTarifsAjouter_Click);
             // 
             // lblTarifsPeriode
             // 
             this.lblTarifsPeriode.AccessibleName = "lblTarifsPeriode";
             this.lblTarifsPeriode.AutoSize = true;
-            this.lblTarifsPeriode.Location = new System.Drawing.Point(144, 365);
+            this.lblTarifsPeriode.Location = new System.Drawing.Point(212, 365);
             this.lblTarifsPeriode.Name = "lblTarifsPeriode";
             this.lblTarifsPeriode.Size = new System.Drawing.Size(49, 13);
             this.lblTarifsPeriode.TabIndex = 4;

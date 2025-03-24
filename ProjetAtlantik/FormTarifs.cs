@@ -13,8 +13,8 @@ namespace ProjetAtlantik
         {
             InitializeComponent();
             this.maCnx = connexion;
+            lbxTarifsSecteur.SelectedIndexChanged += lbxTarifsSecteur_SelectedIndexChanged;
         }
-
         private void FormTarifs_Load(object sender, EventArgs e)
         {
             if (maCnx.State == ConnectionState.Closed)
@@ -25,7 +25,11 @@ namespace ProjetAtlantik
             try
             {
                 ChargerSecteurs();
-                ChargerLiaisons();
+                if (lbxTarifsSecteur.Items.Count > 0)
+                {
+                    lbxTarifsSecteur.SelectedIndex = 0;
+                    ChargerLiaisons(((Secteur)lbxTarifsSecteur.SelectedItem).GetNoSecteur());
+                }
                 ChargerPeriode();
                 if (maCnx.State == ConnectionState.Closed)
                     maCnx.Open();
@@ -107,10 +111,16 @@ namespace ProjetAtlantik
             }
         }
 
-        private void ChargerLiaisons()
+        private void ChargerLiaisons(int noSecteur)
         {
-            string query = "SELECT l.noliaison, l.noport_depart, l.nosecteur, l.noport_arrivee, p1.nom AS nom_port_depart, p2.nom AS nom_port_arrivee FROM liaison l INNER JOIN port p1 ON l.noport_depart = p1.noport INNER JOIN port p2 ON l.noport_arrivee = p2.noport";
+            cmbTarifsLiaison.Items.Clear();
 
+            string query = @"SELECT l.noliaison, l.noport_depart, l.nosecteur, l.noport_arrivee, 
+                        p1.nom AS nom_port_depart, p2.nom AS nom_port_arrivee 
+                 FROM liaison l 
+                 INNER JOIN port p1 ON l.noport_depart = p1.noport 
+                 INNER JOIN port p2 ON l.noport_arrivee = p2.noport
+                 WHERE l.nosecteur = @noSecteur";
             if (maCnx.State == ConnectionState.Closed)
             {
                 maCnx.Open();
@@ -119,14 +129,24 @@ namespace ProjetAtlantik
             try
             {
                 MySqlCommand cmd = new MySqlCommand(query, maCnx);
+                cmd.Parameters.AddWithValue("@noSecteur", noSecteur);
                 MySqlDataReader jeuEnr = cmd.ExecuteReader();
+                bool hasResults = false;
                 {
                     while (jeuEnr.Read())
                     {
+                        hasResults = true;
                         Liaison l = new Liaison(jeuEnr.GetInt32("noport_depart"), jeuEnr.GetInt32("noport_arrivee"), jeuEnr.GetInt32("nosecteur"), jeuEnr.GetInt32("noliaison"));
                         string nomPortDepart = jeuEnr.GetString("nom_port_depart");
                         string nomPortArrivee = jeuEnr.GetString("nom_port_arrivee");
                         cmbTarifsLiaison.Items.Add(nomPortDepart + " -> " + nomPortArrivee);
+                    }
+                    jeuEnr.Close();
+                    if (!hasResults)
+                    {
+                        cmbTarifsLiaison.Items.Add("Aucune liaison pour ce secteur.");
+                        cmbTarifsLiaison.Tag = "Aucune liaison pour ce secteur.";
+                        cmbTarifsLiaison.SelectedIndex = 0;
                     }
                 }
             }
@@ -175,6 +195,29 @@ namespace ProjetAtlantik
                     maCnx.Close();
                 }
             }
+        }
+
+        private void lbxTarifsSecteur_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbxTarifsSecteur.SelectedItem != null)
+            {
+                Secteur secteurSelectionne = (Secteur)lbxTarifsSecteur.SelectedItem;
+                int noSecteur = secteurSelectionne.GetNoSecteur();
+                ChargerLiaisons(noSecteur);
+            }
+        }
+
+        private void cmbTarifsLiaison_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbTarifsLiaison.SelectedItem != null && cmbTarifsLiaison.SelectedItem.ToString() == cmbTarifsLiaison.Tag?.ToString())
+            {
+                cmbTarifsLiaison.SelectedIndex = -1; 
+            }
+        }
+
+        private void btnTarifsAjouter_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

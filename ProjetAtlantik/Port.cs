@@ -9,8 +9,8 @@ namespace ProjetAtlantik
 {
     internal class Port
     {
-        public string nom;
-        public int noPort;
+        private string nom;
+        private int noPort;
 
         public Port(string nom, int noPort)
         {
