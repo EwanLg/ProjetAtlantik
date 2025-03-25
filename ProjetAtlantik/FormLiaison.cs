@@ -12,10 +12,12 @@ namespace ProjetAtlantik
         {
             InitializeComponent();
             this.maCnx = connexion;
+        }
+        private void FormLiaison_Load(object sender, EventArgs e)
+        {
             ChargerSecteurs();
             ChargerPorts();
         }
-
         private void ChargerSecteurs()
         {
             string query = "SELECT noSecteur, nom FROM secteur";
@@ -119,5 +121,7 @@ namespace ProjetAtlantik
                     maCnx.Close();
             }
         }
+
+
     }
 }

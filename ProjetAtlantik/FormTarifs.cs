@@ -261,17 +261,16 @@ namespace ProjetAtlantik
 
                 if (double.TryParse(tbxTarif.Text, out tarif))
                 {
-                    string query = "INSERT INTO tarifer (NOPERIODE, LETTRECATEGORIE, NOTYPE, NOLIAISON, TARIF) " +
-                                   "VALUES (@noperiode, @lettrecategorie, @notype, @noliaison, @tarif)";
+                    string query = "INSERT INTO tarifer (LETTRECATEGORIE, NOTYPE, NOLIAISON, TARIF) " +
+                                   "VALUES (@lettrecategorie, @notype, @noliaison, @tarif)";
 
                     try
                     {
                         if (maCnx.State == ConnectionState.Closed)
                             maCnx.Open();
 
-                        using (MySqlCommand cmd = new MySqlCommand(query, maCnx))
+                        MySqlCommand cmd = new MySqlCommand(query, maCnx);
                         {
-                            cmd.Parameters.AddWithValue("@noperiode", periode.GetNoPeriode());
                             cmd.Parameters.AddWithValue("@lettrecategorie", lettreCategorie);
                             cmd.Parameters.AddWithValue("@notype", type);
                             cmd.Parameters.AddWithValue("@noliaison", liaison.GetNoLiaison());

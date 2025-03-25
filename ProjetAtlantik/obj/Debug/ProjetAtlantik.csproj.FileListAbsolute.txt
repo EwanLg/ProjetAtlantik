@@ -137,3 +137,5 @@ C:\Users\ewanl\Source\Repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlant
 C:\Users\ewanl\Source\Repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAt.03686A27.Up2Date
 C:\Users\ewanl\Source\Repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.exe
 C:\Users\ewanl\Source\Repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.pdb
+C:\Prog\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAjouterBateau.resources
+C:\Prog\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormModifierBateau.resources
