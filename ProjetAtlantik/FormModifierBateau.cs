@@ -121,7 +121,6 @@ namespace ProjetAtlantik
             bool capacitesSaisi = false;
             List<TextBox> textBoxes = new List<TextBox>();
 
-            // Récupération des TextBox contenant les capacités
             foreach (Control control in gbxCapacitesModifierBateau.Controls)
             {
                 if (control is TextBox tbxCapacite)
@@ -130,7 +129,6 @@ namespace ProjetAtlantik
                 }
             }
 
-            // Vérification si des capacités ont été saisies
             foreach (TextBox tbxCapacite in textBoxes)
             {
                 if (!string.IsNullOrEmpty(tbxCapacite.Text))

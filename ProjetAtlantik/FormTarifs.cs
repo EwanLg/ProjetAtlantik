@@ -115,6 +115,7 @@ namespace ProjetAtlantik
         private void ChargerLiaisons(int noSecteur)
         {
             cmbTarifsLiaison.Items.Clear();
+            cmbTarifsLiaison.Text = null;
 
             string query = @"SELECT l.noliaison, l.noport_depart, l.nosecteur, l.noport_arrivee, 
                         p1.nom AS nom_port_depart, p2.nom AS nom_port_arrivee 
