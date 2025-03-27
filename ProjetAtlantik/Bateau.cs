@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 
 namespace ProjetAtlantik
 {
-    internal class Port
+    internal class Bateau
     {
         private string nom;
-        private int noPort;
+        private int noBateau;
 
-        public Port(string nom, int noPort)
+        public Bateau(string nom, int noBateau)
         {
             this.nom = nom;
-            this.noPort = noPort;
+            this.noBateau = noBateau;
         }
         public string GetNom()
         {
             return nom;
         }
-        public int GetNoPort()
+        public int GetNoBateau()
         {
-            return noPort;
+            return noBateau;
         }
         public override string ToString()
         {

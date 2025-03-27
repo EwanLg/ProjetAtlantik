@@ -8,8 +8,8 @@ namespace ProjetAtlantik
 {
     internal class Periode
     {
-        public DateTime datedebut, datefin;
-        public int noPeriode;
+        private DateTime datedebut, datefin;
+        private int noPeriode;
 
         public Periode(DateTime datedebut, DateTime datefin, int noPeriode)
         {

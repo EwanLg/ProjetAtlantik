@@ -110,11 +110,23 @@
     <Compile Include="FormAjouterSecteur.Designer.cs">
       <DependentUpon>FormAjouterSecteur.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAjouterBateau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAjouterBateau.Designer.cs">
+      <DependentUpon>FormAjouterBateau.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLiaison.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLiaison.Designer.cs">
       <DependentUpon>FormLiaison.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormModifierBateau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModifierBateau.Designer.cs">
+      <DependentUpon>FormModifierBateau.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTarifs.cs">
       <SubType>Form</SubType>
@@ -122,7 +134,8 @@
     <Compile Include="FormTarifs.Designer.cs">
       <DependentUpon>FormTarifs.cs</DependentUpon>
     </Compile>
-    <Compile Include="periode.cs" />
+    <Compile Include="Liaison.cs" />
+    <Compile Include="Periode.cs" />
     <Compile Include="Port.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,8 +146,14 @@
     <EmbeddedResource Include="FormAjouterSecteur.resx">
       <DependentUpon>FormAjouterSecteur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAjouterBateau.resx">
+      <DependentUpon>FormAjouterBateau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLiaison.resx">
       <DependentUpon>FormLiaison.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModifierBateau.resx">
+      <DependentUpon>FormModifierBateau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTarifs.resx">
       <DependentUpon>FormTarifs.cs</DependentUpon>

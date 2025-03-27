@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lbxTarifsSecteur = new System.Windows.Forms.ListBox();
-            this.cmbTarifsPort = new System.Windows.Forms.ComboBox();
+            this.cmbTarifsLiaison = new System.Windows.Forms.ComboBox();
             this.cmbTarifsPeriode = new System.Windows.Forms.ComboBox();
             this.btnTarifsAjouter = new System.Windows.Forms.Button();
             this.lblTarifsPeriode = new System.Windows.Forms.Label();
@@ -44,23 +44,25 @@
             this.lbxTarifsSecteur.FormattingEnabled = true;
             this.lbxTarifsSecteur.Location = new System.Drawing.Point(43, 64);
             this.lbxTarifsSecteur.Name = "lbxTarifsSecteur";
-            this.lbxTarifsSecteur.Size = new System.Drawing.Size(120, 212);
+            this.lbxTarifsSecteur.Size = new System.Drawing.Size(175, 212);
             this.lbxTarifsSecteur.TabIndex = 0;
+            this.lbxTarifsSecteur.SelectedIndexChanged += new System.EventHandler(this.lbxTarifsSecteur_SelectedIndexChanged);
             // 
-            // cmbTarifsPort
+            // cmbTarifsLiaison
             // 
-            this.cmbTarifsPort.AccessibleName = "cmbTarifsPort";
-            this.cmbTarifsPort.FormattingEnabled = true;
-            this.cmbTarifsPort.Location = new System.Drawing.Point(43, 306);
-            this.cmbTarifsPort.Name = "cmbTarifsPort";
-            this.cmbTarifsPort.Size = new System.Drawing.Size(120, 21);
-            this.cmbTarifsPort.TabIndex = 1;
+            this.cmbTarifsLiaison.AccessibleName = "cmbTarifsLiaison";
+            this.cmbTarifsLiaison.FormattingEnabled = true;
+            this.cmbTarifsLiaison.Location = new System.Drawing.Point(43, 306);
+            this.cmbTarifsLiaison.Name = "cmbTarifsLiaison";
+            this.cmbTarifsLiaison.Size = new System.Drawing.Size(175, 21);
+            this.cmbTarifsLiaison.TabIndex = 1;
+            this.cmbTarifsLiaison.SelectedIndexChanged += new System.EventHandler(this.cmbTarifsLiaison_SelectedIndexChanged);
             // 
             // cmbTarifsPeriode
             // 
             this.cmbTarifsPeriode.AccessibleName = "cmbTarifsPeriode";
             this.cmbTarifsPeriode.FormattingEnabled = true;
-            this.cmbTarifsPeriode.Location = new System.Drawing.Point(201, 362);
+            this.cmbTarifsPeriode.Location = new System.Drawing.Point(269, 362);
             this.cmbTarifsPeriode.Name = "cmbTarifsPeriode";
             this.cmbTarifsPeriode.Size = new System.Drawing.Size(173, 21);
             this.cmbTarifsPeriode.TabIndex = 2;
@@ -74,12 +76,13 @@
             this.btnTarifsAjouter.TabIndex = 3;
             this.btnTarifsAjouter.Text = "Ajouter";
             this.btnTarifsAjouter.UseVisualStyleBackColor = true;
+            this.btnTarifsAjouter.Click += new System.EventHandler(this.btnTarifsAjouter_Click);
             // 
             // lblTarifsPeriode
             // 
             this.lblTarifsPeriode.AccessibleName = "lblTarifsPeriode";
             this.lblTarifsPeriode.AutoSize = true;
-            this.lblTarifsPeriode.Location = new System.Drawing.Point(144, 365);
+            this.lblTarifsPeriode.Location = new System.Drawing.Point(212, 365);
             this.lblTarifsPeriode.Name = "lblTarifsPeriode";
             this.lblTarifsPeriode.Size = new System.Drawing.Size(49, 13);
             this.lblTarifsPeriode.TabIndex = 4;
@@ -126,7 +129,7 @@
             this.Controls.Add(this.lblTarifsPeriode);
             this.Controls.Add(this.btnTarifsAjouter);
             this.Controls.Add(this.cmbTarifsPeriode);
-            this.Controls.Add(this.cmbTarifsPort);
+            this.Controls.Add(this.cmbTarifsLiaison);
             this.Controls.Add(this.lbxTarifsSecteur);
             this.Name = "FormTarifs";
             this.Text = "FormTarifs";
@@ -139,7 +142,7 @@
         #endregion
 
         private System.Windows.Forms.ListBox lbxTarifsSecteur;
-        private System.Windows.Forms.ComboBox cmbTarifsPort;
+        private System.Windows.Forms.ComboBox cmbTarifsLiaison;
         private System.Windows.Forms.ComboBox cmbTarifsPeriode;
         private System.Windows.Forms.Button btnTarifsAjouter;
         private System.Windows.Forms.Label lblTarifsPeriode;

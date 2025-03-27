@@ -32,7 +32,7 @@ namespace ProjetAtlantik
                     maCnx.Open();
                 }
 
-                using (MySqlCommand cmd = new MySqlCommand(query, maCnx))
+                MySqlCommand cmd = new MySqlCommand(query, maCnx);
                 {
                     cmd.Parameters.AddWithValue("@NomSecteur", tbxAjouterSecteur.Text);
                     cmd.ExecuteNonQuery();

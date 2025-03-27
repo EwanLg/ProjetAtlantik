@@ -12,10 +12,12 @@ namespace ProjetAtlantik
         {
             InitializeComponent();
             this.maCnx = connexion;
+        }
+        private void FormLiaison_Load(object sender, EventArgs e)
+        {
             ChargerSecteurs();
             ChargerPorts();
         }
-
         private void ChargerSecteurs()
         {
             string query = "SELECT noSecteur, nom FROM secteur";
@@ -24,8 +26,8 @@ namespace ProjetAtlantik
                 if (maCnx.State == System.Data.ConnectionState.Closed)
                     maCnx.Open();
 
-                using (MySqlCommand cmd = new MySqlCommand(query, maCnx))
-                using (MySqlDataReader jeuEnr = cmd.ExecuteReader())
+                MySqlCommand cmd = new MySqlCommand(query, maCnx);
+                MySqlDataReader jeuEnr = cmd.ExecuteReader();
                 {
                     while (jeuEnr.Read())
                     {
@@ -53,8 +55,8 @@ namespace ProjetAtlantik
                 if (maCnx.State == System.Data.ConnectionState.Closed)
                     maCnx.Open();
 
-                using (MySqlCommand cmd = new MySqlCommand(query, maCnx))
-                using (MySqlDataReader jeuEnr = cmd.ExecuteReader())
+                MySqlCommand cmd = new MySqlCommand(query, maCnx);
+                MySqlDataReader jeuEnr = cmd.ExecuteReader();
                 {
                     while (jeuEnr.Read())
                     {
@@ -119,5 +121,7 @@ namespace ProjetAtlantik
                     maCnx.Close();
             }
         }
+
+
     }
 }

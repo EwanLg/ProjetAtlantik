@@ -142,6 +142,7 @@
             this.Controls.Add(this.cmbLiaisonDepart);
             this.Name = "FormLiaison";
             this.Text = "FormLiaison";
+            this.Load += new System.EventHandler(this.FormLiaison_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
