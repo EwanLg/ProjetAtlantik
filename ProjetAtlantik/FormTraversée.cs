@@ -89,12 +89,16 @@ namespace ProjetAtlantik
                         cmbLiaisonTraversée.Items.Add(l);
                     }
                     jeuEnr.Close();
-                    if (!hasResults)
-                    {
-                        cmbLiaisonTraversée.Items.Add("Aucune liaison pour ce secteur.");
-                        cmbLiaisonTraversée.Tag = "Aucune liaison pour ce secteur.";
-                        cmbLiaisonTraversée.SelectedIndex = -1;
-                    }
+                if (!hasResults)
+                {
+                    cmbLiaisonTraversée.Items.Clear();
+                    cmbLiaisonTraversée.Text = "Aucune liaison pour ce secteur."; 
+                    cmbLiaisonTraversée.Enabled = false; 
+                }
+                else
+                {
+                    cmbLiaisonTraversée.Enabled = true;
+                }
             }
             catch (Exception ex)
             {

@@ -7,16 +7,8 @@
       "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formtravers\u00E9e.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|C:\\Prog\\ProjetAtlantik\\projetatlantik\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\prog\\projetatlantik\\projetatlantik\\formtravers\u00E9e.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formtravers\u00E9e.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\prog\\projetatlantik\\projetatlantik\\formmodifierbateau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formmodifierbateau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,21 +18,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 352,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FormModifierBateau.cs",
-              "DocumentMoniker": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormModifierBateau.cs",
-              "RelativeDocumentMoniker": "ProjetAtlantik\\FormModifierBateau.cs",
-              "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormModifierBateau.cs",
-              "RelativeToolTip": "ProjetAtlantik\\FormModifierBateau.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T14:25:17.749Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -49,35 +28,22 @@
               "RelativeDocumentMoniker": "ProjetAtlantik\\FormTravers\u00E9e.cs",
               "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormTravers\u00E9e.cs",
               "RelativeToolTip": "ProjetAtlantik\\FormTravers\u00E9e.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAiwD8AAAAsAAAA",
+              "ViewState": "AQIAADUAAAAAAAAAAAAAADwAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T14:21:46.185Z",
+              "WhenOpened": "2025-03-27T14:39:09.752Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "FormTravers\u00E9e.cs [Design]",
               "DocumentMoniker": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormTravers\u00E9e.cs",
               "RelativeDocumentMoniker": "ProjetAtlantik\\FormTravers\u00E9e.cs",
               "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormTravers\u00E9e.cs [Design]",
               "RelativeToolTip": "ProjetAtlantik\\FormTravers\u00E9e.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T14:16:03.428Z",
+              "WhenOpened": "2025-03-27T14:39:08.449Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\Program.cs",
-              "RelativeDocumentMoniker": "ProjetAtlantik\\Program.cs",
-              "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\Program.cs",
-              "RelativeToolTip": "ProjetAtlantik\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T15:46:40.586Z",
-              "EditorCaption": ""
             }
           ]
         }

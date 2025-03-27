@@ -146,9 +146,13 @@ namespace ProjetAtlantik
                     jeuEnr.Close();
                     if (!hasResults)
                     {
-                        cmbTarifsLiaison.Items.Add("Aucune liaison pour ce secteur.");
-                        cmbTarifsLiaison.Tag = "Aucune liaison pour ce secteur.";
-                        cmbTarifsLiaison.SelectedIndex = 0;
+                        cmbTarifsLiaison.Items.Clear();
+                        cmbTarifsLiaison.Text = "Aucune liaison pour ce secteur.";
+                        cmbTarifsLiaison.Enabled = false;
+                    }
+                    else
+                    {
+                        cmbTarifsLiaison.Enabled = true;
                     }
                 }
             }
