@@ -139,3 +139,7 @@ C:\Users\ewanl\Source\Repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlant
 C:\Users\ewanl\Source\Repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.pdb
 C:\Prog\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAjouterBateau.resources
 C:\Prog\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormModifierBateau.resources
+C:\Prog\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormTraversée.resources
+C:\Users\ewanl\Source\Repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAjouterBateau.resources
+C:\Users\ewanl\Source\Repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormModifierBateau.resources
+C:\Users\ewanl\Source\Repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormTraversée.resources

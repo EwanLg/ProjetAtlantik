@@ -116,8 +116,7 @@ namespace ProjetAtlantik
             foreach (TextBox tbxCapacite in textBoxes)
             {
                 string lettreCategorie = tbxCapacite.Tag.ToString().Substring(0, 1);
-                    string query = "INSERT INTO contenir (LETTRECATEGORIE, NOBATEAU, CAPACITEMAX) VALUES (@lettracategorie, @nobateau, @capacitemax)";
-
+                string query = "INSERT INTO contenir (LETTRECATEGORIE, NOBATEAU, CAPACITEMAX) VALUES (@lettrecategorie, @nobateau, @capacitemax)";
                     try
                     {
                         if (maCnx.State == ConnectionState.Closed)
@@ -134,7 +133,7 @@ namespace ProjetAtlantik
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Erreur lors de l'ajout du bateau : {ex.Message}");
+                        MessageBox.Show($"Erreur lors de l'ajout des capacitées du bateau : {ex.Message}");
                     }
                     finally
                     {

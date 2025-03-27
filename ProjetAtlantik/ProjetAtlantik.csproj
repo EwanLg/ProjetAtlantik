@@ -98,6 +98,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bateau.cs" />
     <Compile Include="FormAjouterPort.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,11 +129,18 @@
     <Compile Include="FormModifierBateau.Designer.cs">
       <DependentUpon>FormModifierBateau.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPlaceDispo.cs" />
     <Compile Include="FormTarifs.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormTarifs.Designer.cs">
       <DependentUpon>FormTarifs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTraversée.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTraversée.Designer.cs">
+      <DependentUpon>FormTraversée.cs</DependentUpon>
     </Compile>
     <Compile Include="Liaison.cs" />
     <Compile Include="Periode.cs" />
@@ -157,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormTarifs.resx">
       <DependentUpon>FormTarifs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTraversée.resx">
+      <DependentUpon>FormTraversée.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

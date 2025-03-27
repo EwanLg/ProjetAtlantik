@@ -115,6 +115,8 @@ namespace ProjetAtlantik
         private void ChargerLiaisons(int noSecteur)
         {
             cmbTarifsLiaison.Items.Clear();
+            cmbTarifsLiaison.Text = null;
+            int i = 0;
 
             string query = @"SELECT l.noliaison, l.noport_depart, l.nosecteur, l.noport_arrivee, 
                         p1.nom AS nom_port_depart, p2.nom AS nom_port_arrivee 
@@ -137,6 +139,7 @@ namespace ProjetAtlantik
                     while (jeuEnr.Read())
                     {
                         hasResults = true;
+                        i++;
                         string nomPortDepart = jeuEnr.GetString("nom_port_depart");
                         string nomPortArrivee = jeuEnr.GetString("nom_port_arrivee");
                         Liaison l = new Liaison(jeuEnr.GetInt32("noport_depart"), jeuEnr.GetInt32("noport_arrivee"), jeuEnr.GetInt32("nosecteur"), jeuEnr.GetInt32("noliaison"), nomPortDepart, nomPortArrivee);
@@ -145,9 +148,14 @@ namespace ProjetAtlantik
                     jeuEnr.Close();
                     if (!hasResults)
                     {
-                        cmbTarifsLiaison.Items.Add("Aucune liaison pour ce secteur.");
-                        cmbTarifsLiaison.Tag = "Aucune liaison pour ce secteur.";
-                        cmbTarifsLiaison.SelectedIndex = 0;
+                        cmbTarifsLiaison.Items.Clear();
+                        cmbTarifsLiaison.Text = "Aucune liaison pour ce secteur.";
+                        cmbTarifsLiaison.Enabled = false;
+                    }
+                    else
+                    {
+                        cmbTarifsLiaison.Text = "Choisissez une liaison. (" + i + " liaison)";
+                        cmbTarifsLiaison.Enabled = true;
                     }
                 }
             }
@@ -261,8 +269,8 @@ namespace ProjetAtlantik
 
                 if (double.TryParse(tbxTarif.Text, out tarif))
                 {
-                    string query = "INSERT INTO tarifer (LETTRECATEGORIE, NOTYPE, NOLIAISON, TARIF) " +
-                                   "VALUES (@lettrecategorie, @notype, @noliaison, @tarif)";
+                    string query = "INSERT INTO tarifer (NOPERIODE, LETTRECATEGORIE, NOTYPE, NOLIAISON, TARIF) " +
+                                   "VALUES (@noperiode, @lettrecategorie, @notype, @noliaison, @tarif)";
 
                     try
                     {
@@ -271,6 +279,7 @@ namespace ProjetAtlantik
 
                         MySqlCommand cmd = new MySqlCommand(query, maCnx);
                         {
+                            cmd.Parameters.AddWithValue("@noperiode", periode.GetNoPeriode());
                             cmd.Parameters.AddWithValue("@lettrecategorie", lettreCategorie);
                             cmd.Parameters.AddWithValue("@notype", type);
                             cmd.Parameters.AddWithValue("@noliaison", liaison.GetNoLiaison());
@@ -280,7 +289,8 @@ namespace ProjetAtlantik
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Erreur lors de l'ajout du tarif : {ex.Message}");
+                        MessageBox.Show($"Erreur lors de l'ajout du tarif : {ex.Message} (Tarifs déjà existant");
+                        return;
                     }
                     finally
                     {
