@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "C:\\Prog\\ProjetAtlantik\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\prog\\projetatlantik\\projetatlantik\\formajouterbateau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formajouterbateau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\prog\\projetatlantik\\projetatlantik\\formtarifs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formtarifs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\prog\\projetatlantik\\projetatlantik\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|C:\\Prog\\ProjetAtlantik\\projetatlantik\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\prog\\projetatlantik\\projetatlantik\\formmodifierbateau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formmodifierbateau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\prog\\projetatlantik\\projetatlantik\\formtarifs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formtarifs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\prog\\projetatlantik\\projetatlantik\\formmodifierbateau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formmodifierbateau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\prog\\projetatlantik\\projetatlantik\\bateau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\bateau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\prog\\projetatlantik\\projetatlantik\\formajouterbateau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formajouterbateau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\prog\\projetatlantik\\projetatlantik\\formajouterbateau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -22,8 +42,48 @@
       "DocumentGroups": [
         {
           "DockedWidth": 352,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormModifierBateau.cs",
+              "DocumentMoniker": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormModifierBateau.cs",
+              "RelativeDocumentMoniker": "ProjetAtlantik\\FormModifierBateau.cs",
+              "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormModifierBateau.cs",
+              "RelativeToolTip": "ProjetAtlantik\\FormModifierBateau.cs",
+              "ViewState": "AQIAAF4AAAAAAAAAAAAswFIAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T10:06:03.852Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormModifierBateau.cs [Design]",
+              "DocumentMoniker": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormModifierBateau.cs",
+              "RelativeDocumentMoniker": "ProjetAtlantik\\FormModifierBateau.cs",
+              "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormModifierBateau.cs [Design]",
+              "RelativeToolTip": "ProjetAtlantik\\FormModifierBateau.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T10:04:50.866Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormTarifs.cs",
+              "DocumentMoniker": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormTarifs.cs",
+              "RelativeDocumentMoniker": "ProjetAtlantik\\FormTarifs.cs",
+              "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormTarifs.cs",
+              "RelativeToolTip": "ProjetAtlantik\\FormTarifs.cs",
+              "ViewState": "AQIAAAoBAAAAAAAAAAAAwB4BAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T11:05:09.596Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -32,34 +92,59 @@
               "RelativeDocumentMoniker": "ProjetAtlantik\\Program.cs",
               "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\Program.cs",
               "RelativeToolTip": "ProjetAtlantik\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAxAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T15:46:40.586Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "FormTarifs.cs [Design]",
+              "DocumentMoniker": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormTarifs.cs",
+              "RelativeDocumentMoniker": "ProjetAtlantik\\FormTarifs.cs",
+              "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormTarifs.cs [Design]",
+              "RelativeToolTip": "ProjetAtlantik\\FormTarifs.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T11:05:07.884Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "FormAjouterBateau.cs",
               "DocumentMoniker": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormAjouterBateau.cs",
               "RelativeDocumentMoniker": "ProjetAtlantik\\FormAjouterBateau.cs",
               "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormAjouterBateau.cs",
               "RelativeToolTip": "ProjetAtlantik\\FormAjouterBateau.cs",
-              "ViewState": "AQIAAHkAAAAAAAAAAAD4v5EAAAAJAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwA4AAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T15:15:11.481Z",
+              "WhenOpened": "2025-03-27T10:05:55.776Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "Bateau.cs",
+              "DocumentMoniker": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\Bateau.cs",
+              "RelativeDocumentMoniker": "ProjetAtlantik\\Bateau.cs",
+              "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\Bateau.cs",
+              "RelativeToolTip": "ProjetAtlantik\\Bateau.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvyEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T12:27:54.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "FormAjouterBateau.cs [Design]",
               "DocumentMoniker": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormAjouterBateau.cs",
               "RelativeDocumentMoniker": "ProjetAtlantik\\FormAjouterBateau.cs",
               "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormAjouterBateau.cs [Design]",
               "RelativeToolTip": "ProjetAtlantik\\FormAjouterBateau.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T13:17:56.468Z",
+              "WhenOpened": "2025-03-27T10:05:54.273Z",
               "EditorCaption": " [Design]"
             }
           ]

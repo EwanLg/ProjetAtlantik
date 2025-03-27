@@ -59,7 +59,7 @@
             this.gbxCapacitesModifierBateau.AccessibleName = "gbxCapacitesModifierBateau";
             this.gbxCapacitesModifierBateau.Location = new System.Drawing.Point(383, 74);
             this.gbxCapacitesModifierBateau.Name = "gbxCapacitesModifierBateau";
-            this.gbxCapacitesModifierBateau.Size = new System.Drawing.Size(217, 280);
+            this.gbxCapacitesModifierBateau.Size = new System.Drawing.Size(278, 280);
             this.gbxCapacitesModifierBateau.TabIndex = 4;
             this.gbxCapacitesModifierBateau.TabStop = false;
             this.gbxCapacitesModifierBateau.Text = "Capacités Maximales";
@@ -72,6 +72,7 @@
             this.cmbModifierBateau.Name = "cmbModifierBateau";
             this.cmbModifierBateau.Size = new System.Drawing.Size(121, 21);
             this.cmbModifierBateau.TabIndex = 8;
+            this.cmbModifierBateau.SelectedIndexChanged += new System.EventHandler(this.cmbModifierBateau_SelectedIndexChanged);
             // 
             // FormModifierBateau
             // 
@@ -84,6 +85,7 @@
             this.Controls.Add(this.gbxCapacitesModifierBateau);
             this.Name = "FormModifierBateau";
             this.Text = "FormModifierBateau";
+            this.Load += new System.EventHandler(this.FormModifierBateau_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjetAtlantik
 {
-    internal class Bateau
+    public class Bateau
     {
         private string nom;
         private int noBateau;

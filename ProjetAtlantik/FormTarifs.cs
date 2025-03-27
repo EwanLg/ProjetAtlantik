@@ -261,8 +261,8 @@ namespace ProjetAtlantik
 
                 if (double.TryParse(tbxTarif.Text, out tarif))
                 {
-                    string query = "INSERT INTO tarifer (LETTRECATEGORIE, NOTYPE, NOLIAISON, TARIF) " +
-                                   "VALUES (@lettrecategorie, @notype, @noliaison, @tarif)";
+                    string query = "INSERT INTO tarifer (NOPERIODE, LETTRECATEGORIE, NOTYPE, NOLIAISON, TARIF) " +
+                                   "VALUES (@noperiode, @lettrecategorie, @notype, @noliaison, @tarif)";
 
                     try
                     {
@@ -271,6 +271,7 @@ namespace ProjetAtlantik
 
                         MySqlCommand cmd = new MySqlCommand(query, maCnx);
                         {
+                            cmd.Parameters.AddWithValue("@noperiode", periode.GetNoPeriode());
                             cmd.Parameters.AddWithValue("@lettrecategorie", lettreCategorie);
                             cmd.Parameters.AddWithValue("@notype", type);
                             cmd.Parameters.AddWithValue("@noliaison", liaison.GetNoLiaison());
@@ -280,7 +281,8 @@ namespace ProjetAtlantik
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Erreur lors de l'ajout du tarif : {ex.Message}");
+                        MessageBox.Show($"Erreur lors de l'ajout du tarif : {ex.Message} (Tarifs déjà existant");
+                        return;
                     }
                     finally
                     {
