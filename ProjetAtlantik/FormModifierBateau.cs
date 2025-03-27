@@ -18,6 +18,7 @@ namespace ProjetAtlantik
         {
             InitializeComponent();
             this.maCnx = connexion;
+            cmbModifierBateau.SelectedIndexChanged += cmbModifierBateau_SelectedIndexChanged;
         }
 
         private void FormModifierBateau_Load(object sender, EventArgs e)
@@ -62,9 +63,13 @@ namespace ProjetAtlantik
                     if (maCnx.State == ConnectionState.Closed)
                         maCnx.Open();
 
-                    string query = "SELECT * FROM categorie";
+                string query = "SELECT c.lettrecategorie, c.libelle, co.capacitemax " +
+                                       "FROM categorie c " +
+                                       "LEFT JOIN contenir co ON c.lettrecategorie = co.lettrecategorie " +
+                                       "WHERE co.nobateau = @noBateau";
                     int i = 1;
                     MySqlCommand cmd = new MySqlCommand(query, maCnx);
+                    cmd.Parameters.AddWithValue("@noBateau", noBateau);
                     MySqlDataReader jeuEnr = cmd.ExecuteReader();
                     {
                         while (jeuEnr.Read())
@@ -75,7 +80,7 @@ namespace ProjetAtlantik
                             gbxCapacitesModifierBateau.Controls.Add(lblCategorie);
 
                             TextBox tbxCategorie = new TextBox();
-                            tbxCategorie.Text = jeuEnr["lettrecategorie"] + " (" + jeuEnr["libelle"] + " ) : ";
+                            tbxCategorie.Text = jeuEnr.GetInt32("capacitemax").ToString();
                             tbxCategorie.Tag = jeuEnr["lettrecategorie"];
                             tbxCategorie.Location = new Point(125, i * 50);
                             gbxCapacitesModifierBateau.Controls.Add(tbxCategorie);
@@ -105,5 +110,91 @@ namespace ProjetAtlantik
                 ChargerCapacite(noBateau);
             }
         }
+        private void btnModiferBateau_Click(object sender, EventArgs e)
+        {
+            if (cmbModifierBateau.SelectedIndex == -1)
+            {
+                MessageBox.Show("Sélectionnez un bateau.");
+                return;
+            }
+
+            bool capacitesSaisi = false;
+            List<TextBox> textBoxes = new List<TextBox>();
+
+            // Récupération des TextBox contenant les capacités
+            foreach (Control control in gbxCapacitesModifierBateau.Controls)
+            {
+                if (control is TextBox tbxCapacite)
+                {
+                    textBoxes.Add(tbxCapacite);
+                }
+            }
+
+            // Vérification si des capacités ont été saisies
+            foreach (TextBox tbxCapacite in textBoxes)
+            {
+                if (!string.IsNullOrEmpty(tbxCapacite.Text))
+                {
+                    capacitesSaisi = true;
+                    break;
+                }
+            }
+
+            if (!capacitesSaisi)
+            {
+                MessageBox.Show("Veuillez renseigner des capacités.");
+                return;
+            }
+
+            int idbateau = -1;
+            try
+            {
+                if (maCnx.State == ConnectionState.Closed)
+                    maCnx.Open();
+                string query = "SELECT nobateau FROM bateau WHERE NOM = @nom";
+                MySqlCommand cmd = new MySqlCommand(query, maCnx);
+                cmd.Parameters.AddWithValue("@nom", cmbModifierBateau.Text);
+                idbateau = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la récupération du bateau : {ex.Message}");
+            }
+
+            if (idbateau == -1)
+            {
+                MessageBox.Show("Erreur : L'ID du bateau n'a pas été récupéré.");
+                return;
+            }
+            foreach (TextBox tbxCapacite in textBoxes)
+            {
+                string lettreCategorie = tbxCapacite.Tag.ToString().Substring(0, 1);
+
+                try
+                {
+                    if (maCnx.State == ConnectionState.Closed)
+                        maCnx.Open();
+
+                    string updateQuery = "UPDATE contenir SET CAPACITEMAX = @capacitemax WHERE LETTRECATEGORIE = @lettrecategorie AND NOBATEAU = @nobateau";
+                    MySqlCommand updateCmd = new MySqlCommand(updateQuery, maCnx);
+                    updateCmd.Parameters.AddWithValue("@lettrecategorie", lettreCategorie);
+                    updateCmd.Parameters.AddWithValue("@nobateau", idbateau);
+                    updateCmd.Parameters.AddWithValue("@capacitemax", Convert.ToInt32(tbxCapacite.Text));
+                    updateCmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erreur lors de la mise à jour des capacités du bateau : {ex.Message}");
+                }
+                finally
+                {
+                    if (maCnx.State == ConnectionState.Open)
+                        maCnx.Close();
+                }
+            }
+
+            MessageBox.Show("Capacités du bateau mises à jour avec succès !");
+        }
+
     }
-    }
+}

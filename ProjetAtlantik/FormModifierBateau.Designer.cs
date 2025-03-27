@@ -53,6 +53,7 @@
             this.btnModiferBateau.TabIndex = 5;
             this.btnModiferBateau.Text = "Modifier";
             this.btnModiferBateau.UseVisualStyleBackColor = true;
+            this.btnModiferBateau.Click += new System.EventHandler(this.btnModiferBateau_Click);
             // 
             // gbxCapacitesModifierBateau
             // 

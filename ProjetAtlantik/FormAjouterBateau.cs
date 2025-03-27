@@ -128,7 +128,6 @@ namespace ProjetAtlantik
                             cmd.Parameters.AddWithValue("@lettrecategorie", lettreCategorie);
                             cmd.Parameters.AddWithValue("@nobateau", idbateau);
                             cmd.Parameters.AddWithValue("@capacitemax", Convert.ToInt32(tbxCapacite.Text));
-                            MessageBox.Show(query);
                             cmd.ExecuteNonQuery();
                         }
                     }
