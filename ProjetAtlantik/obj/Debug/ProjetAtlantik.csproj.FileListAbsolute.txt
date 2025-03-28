@@ -143,3 +143,4 @@ C:\Prog\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormTraversée.re
 C:\Users\ewanl\Source\Repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAjouterBateau.resources
 C:\Users\ewanl\Source\Repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormModifierBateau.resources
 C:\Users\ewanl\Source\Repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormTraversée.resources
+C:\Prog\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormPlaceDispo.resources
