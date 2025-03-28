@@ -116,6 +116,7 @@ namespace ProjetAtlantik
         {
             cmbTarifsLiaison.Items.Clear();
             cmbTarifsLiaison.Text = null;
+            int i = 0;
 
             string query = @"SELECT l.noliaison, l.noport_depart, l.nosecteur, l.noport_arrivee, 
                         p1.nom AS nom_port_depart, p2.nom AS nom_port_arrivee 
@@ -138,6 +139,7 @@ namespace ProjetAtlantik
                     while (jeuEnr.Read())
                     {
                         hasResults = true;
+                        i++;
                         string nomPortDepart = jeuEnr.GetString("nom_port_depart");
                         string nomPortArrivee = jeuEnr.GetString("nom_port_arrivee");
                         Liaison l = new Liaison(jeuEnr.GetInt32("noport_depart"), jeuEnr.GetInt32("noport_arrivee"), jeuEnr.GetInt32("nosecteur"), jeuEnr.GetInt32("noliaison"), nomPortDepart, nomPortArrivee);
@@ -152,6 +154,7 @@ namespace ProjetAtlantik
                     }
                     else
                     {
+                        cmbTarifsLiaison.Text = "Choisissez une liaison. (" + i + " liaison)";
                         cmbTarifsLiaison.Enabled = true;
                     }
                 }

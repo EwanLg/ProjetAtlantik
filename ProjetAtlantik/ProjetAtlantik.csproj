@@ -129,6 +129,7 @@
     <Compile Include="FormModifierBateau.Designer.cs">
       <DependentUpon>FormModifierBateau.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPlaceDispo.cs" />
     <Compile Include="FormTarifs.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -18,32 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 352,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FormTravers\u00E9e.cs",
-              "DocumentMoniker": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormTravers\u00E9e.cs",
-              "RelativeDocumentMoniker": "ProjetAtlantik\\FormTravers\u00E9e.cs",
-              "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormTravers\u00E9e.cs",
-              "RelativeToolTip": "ProjetAtlantik\\FormTravers\u00E9e.cs",
-              "ViewState": "AQIAAE8AAAAAAAAAAAAQwFsAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T14:39:09.752Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "FormTravers\u00E9e.cs [Design]",
               "DocumentMoniker": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormTravers\u00E9e.cs",
               "RelativeDocumentMoniker": "ProjetAtlantik\\FormTravers\u00E9e.cs",
-              "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormTravers\u00E9e.cs [Design]",
-              "RelativeToolTip": "ProjetAtlantik\\FormTravers\u00E9e.cs [Design]",
+              "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormTravers\u00E9e.cs [Design]*",
+              "RelativeToolTip": "ProjetAtlantik\\FormTravers\u00E9e.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T14:39:08.449Z",
+              "WhenOpened": "2025-03-28T15:20:37.841Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormTravers\u00E9e.cs",
+              "DocumentMoniker": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormTravers\u00E9e.cs",
+              "RelativeDocumentMoniker": "ProjetAtlantik\\FormTravers\u00E9e.cs",
+              "ToolTip": "C:\\Prog\\ProjetAtlantik\\ProjetAtlantik\\FormTravers\u00E9e.cs*",
+              "RelativeToolTip": "ProjetAtlantik\\FormTravers\u00E9e.cs*",
+              "ViewState": "AQIAALkAAAAAAAAAAADwv8YAAADHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T14:39:09.752Z",
+              "EditorCaption": ""
             }
           ]
         }
