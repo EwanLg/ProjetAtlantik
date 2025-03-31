@@ -35,10 +35,9 @@
             this.lblPlaceDispoSecteur = new System.Windows.Forms.Label();
             this.lblPlaceDispoLiaison = new System.Windows.Forms.Label();
             this.lblPlaceDispoDate = new System.Windows.Forms.Label();
-            this.dgvPlaceDispo = new System.Windows.Forms.DataGridView();
             this.lblTraversée = new System.Windows.Forms.Label();
             this.lblPlaceDispo = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlaceDispo)).BeginInit();
+            this.lvPlaceDispo = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lbxPlaceDispoSecteur
@@ -108,15 +107,6 @@
             this.lblPlaceDispoDate.TabIndex = 6;
             this.lblPlaceDispoDate.Text = "Date (par défaut date du jour) :";
             // 
-            // dgvPlaceDispo
-            // 
-            this.dgvPlaceDispo.AccessibleName = "dgvPlaceDispo";
-            this.dgvPlaceDispo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPlaceDispo.Location = new System.Drawing.Point(189, 52);
-            this.dgvPlaceDispo.Name = "dgvPlaceDispo";
-            this.dgvPlaceDispo.Size = new System.Drawing.Size(582, 375);
-            this.dgvPlaceDispo.TabIndex = 7;
-            // 
             // lblTraversée
             // 
             this.lblTraversée.AccessibleName = "lblTraversée";
@@ -138,14 +128,24 @@
             this.lblPlaceDispo.Text = ": Place dispo par catégorie";
             this.lblPlaceDispo.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // lvPlaceDispo
+            // 
+            this.lvPlaceDispo.AccessibleName = "lvPlaceDispo";
+            this.lvPlaceDispo.HideSelection = false;
+            this.lvPlaceDispo.Location = new System.Drawing.Point(189, 44);
+            this.lvPlaceDispo.Name = "lvPlaceDispo";
+            this.lvPlaceDispo.Size = new System.Drawing.Size(582, 383);
+            this.lvPlaceDispo.TabIndex = 10;
+            this.lvPlaceDispo.UseCompatibleStateImageBehavior = false;
+            // 
             // FormPlaceDispo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lvPlaceDispo);
             this.Controls.Add(this.lblPlaceDispo);
             this.Controls.Add(this.lblTraversée);
-            this.Controls.Add(this.dgvPlaceDispo);
             this.Controls.Add(this.lblPlaceDispoDate);
             this.Controls.Add(this.lblPlaceDispoLiaison);
             this.Controls.Add(this.lblPlaceDispoSecteur);
@@ -154,9 +154,8 @@
             this.Controls.Add(this.cmbPlaceDispoLiaison);
             this.Controls.Add(this.lbxPlaceDispoSecteur);
             this.Name = "FormPlaceDispo";
-            this.Text = "FormPlaceDispo";
+            this.Text = "b";
             this.Load += new System.EventHandler(this.FormPlaceDispo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlaceDispo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,8 +170,8 @@
         private System.Windows.Forms.Label lblPlaceDispoSecteur;
         private System.Windows.Forms.Label lblPlaceDispoLiaison;
         private System.Windows.Forms.Label lblPlaceDispoDate;
-        private System.Windows.Forms.DataGridView dgvPlaceDispo;
         private System.Windows.Forms.Label lblTraversée;
         private System.Windows.Forms.Label lblPlaceDispo;
+        private System.Windows.Forms.ListView lvPlaceDispo;
     }
 }

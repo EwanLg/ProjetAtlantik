@@ -26,6 +26,13 @@ namespace ProjetAtlantik
             ChargerSecteurs();
             dtpPlaceDispo.CustomFormat = "MM/dd/yyyy";
             dtpPlaceDispo.Format = DateTimePickerFormat.Custom;
+            lvPlaceDispo.View = View.Details;
+            lvPlaceDispo.Columns.Add("No traversée", 100);
+            lvPlaceDispo.Columns.Add("Heure", 120);
+            lvPlaceDispo.Columns.Add("Bateau", 120);
+            lvPlaceDispo.Columns.Add("A passager", 100);
+            lvPlaceDispo.Columns.Add("B véh.inf.2m", 120);
+            lvPlaceDispo.Columns.Add("C véh.sup.2m", 120);
             if (lbxPlaceDispoSecteur.Items.Count > 0)
             {
                 lbxPlaceDispoSecteur.SelectedIndex = 0;
@@ -129,33 +136,29 @@ namespace ProjetAtlantik
             DateTime dateSelectionnee = dtpPlaceDispo.Value.Date;
 
             string query = @"SELECT 
-    t.NOTRAVERSEE, 
-    t.DATEHEUREDEPART AS HEURE_DEPART, 
-    b.NOM AS NOM_BATEAU,
-    -- Nombre de places disponibles pour les passagers A
-    (c.CAPACITEMAX - IFNULL(SUM(CASE WHEN e.LETTRECATEGORIE = 'A' THEN e.QUANTITERESERVEE ELSE 0 END), 0)) AS A_PASSAGER,
-    -- Nombre de places disponibles pour les véhicules inférieurs à 2m (B)
-    (c.CAPACITEMAX - IFNULL(SUM(CASE WHEN e.LETTRECATEGORIE = 'B' THEN e.QUANTITERESERVEE ELSE 0 END), 0)) AS B_VEH_INF_2M,
-    -- Nombre de places disponibles pour les véhicules supérieurs à 2m (C)
-    (c.CAPACITEMAX - IFNULL(SUM(CASE WHEN e.LETTRECATEGORIE = 'C' THEN e.QUANTITERESERVEE ELSE 0 END), 0)) AS C_VEH_SUP_2M
-FROM 
-    traversee t
-JOIN 
-    bateau b ON t.NOBATEAU = b.NOBATEAU
-JOIN 
-    contenir c ON b.NOBATEAU = c.NOBATEAU
-LEFT JOIN 
-    enregistrer e ON e.NOTRAVERSEE = t.NOTRAVERSEE
-JOIN 
-    liaison l ON t.NOLIAISON = l.NOLIAISON
-WHERE 
-    l.NOLIAISON = @LiaisonId
-    AND t.DATEHEUREDEPART >= @Date
-GROUP BY 
-    t.NOTRAVERSEE, t.DATEHEUREDEPART, b.NOM, c.CAPACITEMAX
-ORDER BY 
-    t.DATEHEUREDEPART;
-";
+                t.NOTRAVERSEE, 
+                t.DATEHEUREDEPART AS HEURE_DEPART, 
+                b.NOM AS NOM_BATEAU,
+                (c.CAPACITEMAX - IFNULL(SUM(CASE WHEN e.LETTRECATEGORIE = 'A' THEN e.QUANTITERESERVEE ELSE 0 END), 0)) AS A_PASSAGER,
+                (c.CAPACITEMAX - IFNULL(SUM(CASE WHEN e.LETTRECATEGORIE = 'B' THEN e.QUANTITERESERVEE ELSE 0 END), 0)) AS B_VEH_INF_2M,
+                (c.CAPACITEMAX - IFNULL(SUM(CASE WHEN e.LETTRECATEGORIE = 'C' THEN e.QUANTITERESERVEE ELSE 0 END), 0)) AS C_VEH_SUP_2M
+            FROM 
+                traversee t
+            JOIN 
+                bateau b ON t.NOBATEAU = b.NOBATEAU
+            JOIN 
+                contenir c ON b.NOBATEAU = c.NOBATEAU
+            LEFT JOIN 
+                enregistrer e ON e.NOTRAVERSEE = t.NOTRAVERSEE
+            JOIN 
+                liaison l ON t.NOLIAISON = l.NOLIAISON
+            WHERE 
+                l.NOLIAISON = @LiaisonId
+                AND t.DATEHEUREDEPART >= @Date
+            GROUP BY 
+                t.NOTRAVERSEE, t.DATEHEUREDEPART, b.NOM, c.CAPACITEMAX
+            ORDER BY 
+                t.DATEHEUREDEPART;";
 
             try
             {
@@ -166,24 +169,21 @@ ORDER BY
                 cmd.Parameters.AddWithValue("@LiaisonId", liaisonSelectionnee.GetNoLiaison());
                 cmd.Parameters.AddWithValue("@Date", dateSelectionnee);
 
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                lvPlaceDispo.Items.Clear();
 
-                DataView dataView = new DataView(dt);
-                dataView.ToTable(true, "NOTRAVERSEE", "HEURE_DEPART", "NOM_BATEAU", "A_PASSAGER", "B_VEH_INF_2M", "C_VEH_SUP_2M");
+                while (reader.Read())
+                {
+                    ListViewItem item = new ListViewItem(reader["NOTRAVERSEE"].ToString());
+                    item.SubItems.Add(reader["HEURE_DEPART"].ToString());
+                    item.SubItems.Add(reader["NOM_BATEAU"].ToString());
+                    item.SubItems.Add(reader["A_PASSAGER"].ToString());
+                    item.SubItems.Add(reader["B_VEH_INF_2M"].ToString());
+                    item.SubItems.Add(reader["C_VEH_SUP_2M"].ToString());
 
-                dgvPlaceDispo.DataSource = dataView;
-
-                dgvPlaceDispo.Columns["NOTRAVERSEE"].HeaderText = "No traversée";
-                dgvPlaceDispo.Columns["HEURE_DEPART"].HeaderText = "Heure";
-                dgvPlaceDispo.Columns["NOM_BATEAU"].HeaderText = "Bateau";
-                dgvPlaceDispo.Columns["A_PASSAGER"].HeaderText = "A passager";
-                dgvPlaceDispo.Columns["B_VEH_INF_2M"].HeaderText = "B véh.inf.2m";
-                dgvPlaceDispo.Columns["C_VEH_SUP_2M"].HeaderText = "C véh.sup.2m";
-
-                dgvPlaceDispo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                dgvPlaceDispo.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                    lvPlaceDispo.Items.Add(item);
+                }
+                reader.Close();
             }
             catch (MySqlException ex)
             {
@@ -195,8 +195,6 @@ ORDER BY
                     maCnx.Close();
             }
         }
-
-
         private void lbxPlaceDispoSecteur_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lbxPlaceDispoSecteur.SelectedItem != null)

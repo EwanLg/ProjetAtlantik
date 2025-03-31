@@ -149,3 +149,4 @@ C:\Users\ewanl\Source\Repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlant
 =======
 C:\Prog\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormDétailsRéservation.resources
 >>>>>>> ca52c895db77ffa5a7851b37b8637a5fcb9cfffd
+C:\Users\ewanl\Source\Repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormDétailsRéservation.resources
