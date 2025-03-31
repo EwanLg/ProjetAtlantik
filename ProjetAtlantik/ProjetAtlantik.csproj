@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bateau.cs" />
+    <Compile Include="clients.cs" />
     <Compile Include="FormAjouterPort.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +117,12 @@
     </Compile>
     <Compile Include="FormAjouterBateau.Designer.cs">
       <DependentUpon>FormAjouterBateau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDétailsRéservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDétailsRéservation.Designer.cs">
+      <DependentUpon>FormDétailsRéservation.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLiaison.cs">
       <SubType>Form</SubType>
@@ -161,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAjouterBateau.resx">
       <DependentUpon>FormAjouterBateau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDétailsRéservation.resx">
+      <DependentUpon>FormDétailsRéservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLiaison.resx">
       <DependentUpon>FormLiaison.cs</DependentUpon>
