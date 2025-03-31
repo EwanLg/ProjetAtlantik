@@ -28,11 +28,11 @@ namespace ProjetAtlantik
             dtpPlaceDispo.Format = DateTimePickerFormat.Custom;
             lvPlaceDispo.View = View.Details;
             lvPlaceDispo.Columns.Add("No traversée", 100);
-            lvPlaceDispo.Columns.Add("Heure", 120);
-            lvPlaceDispo.Columns.Add("Bateau", 120);
+            lvPlaceDispo.Columns.Add("Heure", 100);
+            lvPlaceDispo.Columns.Add("Bateau", 100);
             lvPlaceDispo.Columns.Add("A passager", 100);
-            lvPlaceDispo.Columns.Add("B véh.inf.2m", 120);
-            lvPlaceDispo.Columns.Add("C véh.sup.2m", 120);
+            lvPlaceDispo.Columns.Add("B véh.inf.2m", 100);
+            lvPlaceDispo.Columns.Add("C véh.sup.2m", 100);
             if (lbxPlaceDispoSecteur.Items.Count > 0)
             {
                 lbxPlaceDispoSecteur.SelectedIndex = 0;
