@@ -24,9 +24,17 @@ namespace ProjetAtlantik
         {
             ChargerSecteurs();
             ChargerNomBateau();
-            dtpTraverséeDépart.Format = DateTimePickerFormat.Custom;
-            dtpTraverséeDépart.CustomFormat = "MM/dd/yyyy hh:mm:ss";
-            if (lbxSecteurTraversée.Items.Count > 0)
+            dtpTraverséeDépartJour.CustomFormat = "MM/dd/yyyy";
+            dtpTraverséeDépartJour.Format = DateTimePickerFormat.Custom;
+            dtpTraverséeDépartHeure.CustomFormat = "HH:mm";
+            dtpTraverséeDépartHeure.Format = DateTimePickerFormat.Custom;
+            dtpTraverséeDépartHeure.ShowUpDown = true;
+            dtpTraverséeArrivéeJour.CustomFormat = "MM/dd/yyyy";
+            dtpTraverséeArrivéeJour.Format = DateTimePickerFormat.Custom;
+            dtpTraverséeArrivéeHeure.CustomFormat = "HH:mm";
+            dtpTraverséeArrivéeHeure.Format = DateTimePickerFormat.Custom;
+            dtpTraverséeArrivéeHeure.ShowUpDown = true;
+            if (lbxSecteurTraversée.Items.Count > 0) 
             {
                 lbxSecteurTraversée.SelectedIndex = 0;
                 ChargerLiaisons(((Secteur)lbxSecteurTraversée.SelectedItem).GetNoSecteur());
@@ -101,7 +109,7 @@ namespace ProjetAtlantik
                 }
                 else
                 {
-                    cmbLiaisonTraversée.Text = "Choisissez une liaison. (" + i + " liaison)";
+                    cmbLiaisonTraversée.Text = i + " liaisons disponibles.";
                     cmbLiaisonTraversée.Enabled = true;
                 }
             }
@@ -161,6 +169,46 @@ namespace ProjetAtlantik
                 Secteur secteurSelectionne = (Secteur)lbxSecteurTraversée.SelectedItem;
                 int noSecteur = secteurSelectionne.GetNoSecteur();
                 ChargerLiaisons(noSecteur);
+            }
+        }
+
+        private void btnAjouterTraversée_Click(object sender, EventArgs e)
+        {
+            if (cmbLiaisonTraversée.SelectedItem == null || cmbNomBateauTraversée.SelectedItem == null || lbxSecteurTraversée.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner une liaison, un bateau et un secteur.");
+                return;
+            }
+
+            Liaison l = (Liaison)cmbLiaisonTraversée.SelectedItem;
+            Bateau b = (Bateau)cmbNomBateauTraversée.SelectedItem;
+            Secteur secteur = (Secteur)lbxSecteurTraversée.SelectedItem;
+
+            string query = "INSERT INTO traversee (NOLIAISON, NOBATEAU, DATEHEUREDEPART, DATEHEUREARRIVEE) " +
+                           "VALUES (@noliaison, @nobateau, @dateheuredepart, @dateheurearrivee)";
+            try
+            {
+                if (maCnx.State == System.Data.ConnectionState.Closed)
+                    maCnx.Open();
+
+                using (MySqlCommand cmd = new MySqlCommand(query, maCnx))
+                {
+                    cmd.Parameters.AddWithValue("@noliaison", l.GetNoLiaison());
+                    cmd.Parameters.AddWithValue("@nobateau", b.GetNoBateau());
+                    cmd.Parameters.AddWithValue("@dateheuredepart", dtpTraverséeDépartJour.Value.Date.Add(dtpTraverséeDépartHeure.Value.TimeOfDay).AddSeconds(-dtpTraverséeDépartHeure.Value.Second));
+                    cmd.Parameters.AddWithValue("@dateheurearrivee", dtpTraverséeArrivéeJour.Value.Date.Add(dtpTraverséeArrivéeHeure.Value.TimeOfDay).AddSeconds(-dtpTraverséeDépartHeure.Value.Second));
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Traversée ajoutée avec succès !");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de l'ajout de la traversée : {ex.Message}");
+            }
+            finally
+            {
+                if (maCnx.State == System.Data.ConnectionState.Open)
+                    maCnx.Close();
             }
         }
     }

@@ -129,7 +129,12 @@
     <Compile Include="FormModifierBateau.Designer.cs">
       <DependentUpon>FormModifierBateau.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPlaceDispo.cs" />
+    <Compile Include="FormPlaceDispo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlaceDispo.Designer.cs">
+      <DependentUpon>FormPlaceDispo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTarifs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormModifierBateau.resx">
       <DependentUpon>FormModifierBateau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlaceDispo.resx">
+      <DependentUpon>FormPlaceDispo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTarifs.resx">
       <DependentUpon>FormTarifs.cs</DependentUpon>
