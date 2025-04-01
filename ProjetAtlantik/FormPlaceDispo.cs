@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -126,6 +127,55 @@ namespace ProjetAtlantik
         }
         private void ChargerPlaceDispo()
         {
+            string query = @"SELECT notraversee FROM traversee";
+
+            try
+            {
+                lvPlaceDispo.Items.Clear();
+
+                if (maCnx.State == ConnectionState.Closed)
+                {
+                    maCnx.Open();
+                }
+
+                MySqlCommand cmd = new MySqlCommand(query, maCnx);
+                MySqlDataReader jeuEnr = cmd.ExecuteReader();
+
+                if (!jeuEnr.HasRows)
+                {
+                    MessageBox.Show("Aucune réservation trouvée pour ce client.");
+                    return;
+                }
+
+                while (jeuEnr.Read())
+                {
+                    var tabItem = new string[6]
+                    {
+                        jeuEnr.GetInt32("NORESERVATION").ToString(),
+                        jeuEnr.GetString("Liaison"),
+                        jeuEnr.GetInt32("NOTRAVERSEE").ToString(),
+                        jeuEnr.GetDateTime("DATEHEUREDEPART").ToString("dd/MM/yyyy HH:mm"),
+                        jeuEnr.GetDateTime("DATEHEUREDEPART").ToString("dd/MM/yyyy HH:mm"),
+                        jeuEnr.GetDateTime("DATEHEUREDEPART").ToString("dd/MM/yyyy HH:mm")
+                    };
+
+                    ListViewItem item = new ListViewItem(tabItem);
+                    item.Tag = tabItem[0];
+                    lvPlaceDispo.Items.Add(item);
+                }
+                jeuEnr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors du chargements des réservations : " + ex.Message);
+            }
+            finally
+            {
+                if (maCnx.State == ConnectionState.Open)
+                {
+                    maCnx.Close();
+                }
+            }
         }
         private List<Categorie> getLesCategories()
         {
