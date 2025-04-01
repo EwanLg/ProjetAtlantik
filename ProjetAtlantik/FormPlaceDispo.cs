@@ -153,7 +153,7 @@ namespace ProjetAtlantik
                     {
                         jeuEnr.GetInt32("NORESERVATION").ToString(),
                         jeuEnr.GetString("Liaison"),
-                        jeuEnr.GetInt32("NOTRAVERSEE").ToString(),
+                        jeuEnr.GetInt32("").ToString(),
                         jeuEnr.GetDateTime("DATEHEUREDEPART").ToString("dd/MM/yyyy HH:mm"),
                         jeuEnr.GetDateTime("DATEHEUREDEPART").ToString("dd/MM/yyyy HH:mm"),
                         jeuEnr.GetDateTime("DATEHEUREDEPART").ToString("dd/MM/yyyy HH:mm")
