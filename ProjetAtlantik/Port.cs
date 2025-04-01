@@ -27,7 +27,7 @@ namespace ProjetAtlantik
         }
         public override string ToString()
         {
-            return noPort + nom;
+            return noPort.ToString() + nom;
         }
     }
 }
