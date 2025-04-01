@@ -126,75 +126,107 @@ namespace ProjetAtlantik
         }
         private void ChargerPlaceDispo()
         {
-            if (cmbPlaceDispoLiaison.SelectedItem == null)
-            {
-                MessageBox.Show("Veuillez sélectionner une liaison.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            Liaison liaisonSelectionnee = (Liaison)cmbPlaceDispoLiaison.SelectedItem;
-            DateTime dateSelectionnee = dtpPlaceDispo.Value.Date;
-
-            string query = @"SELECT 
-                t.NOTRAVERSEE, 
-                t.DATEHEUREDEPART AS HEURE_DEPART, 
-                b.NOM AS NOM_BATEAU,
-                (c.CAPACITEMAX - IFNULL(SUM(CASE WHEN e.LETTRECATEGORIE = 'A' THEN e.QUANTITERESERVEE ELSE 0 END), 0)) AS A_PASSAGER,
-                (c.CAPACITEMAX - IFNULL(SUM(CASE WHEN e.LETTRECATEGORIE = 'B' THEN e.QUANTITERESERVEE ELSE 0 END), 0)) AS B_VEH_INF_2M,
-                (c.CAPACITEMAX - IFNULL(SUM(CASE WHEN e.LETTRECATEGORIE = 'C' THEN e.QUANTITERESERVEE ELSE 0 END), 0)) AS C_VEH_SUP_2M
-            FROM 
-                traversee t
-            JOIN 
-                bateau b ON t.NOBATEAU = b.NOBATEAU
-            JOIN 
-                contenir c ON b.NOBATEAU = c.NOBATEAU
-            LEFT JOIN 
-                enregistrer e ON e.NOTRAVERSEE = t.NOTRAVERSEE
-            JOIN 
-                liaison l ON t.NOLIAISON = l.NOLIAISON
-            WHERE 
-                l.NOLIAISON = @LiaisonId
-                AND t.DATEHEUREDEPART >= @Date
-            GROUP BY 
-                t.NOTRAVERSEE, t.DATEHEUREDEPART, b.NOM, c.CAPACITEMAX
-            ORDER BY 
-                t.DATEHEUREDEPART;";
-
+        }
+        private List<Categorie> getLesCategories()
+        {
+            List<Categorie> categories = new List<Categorie>();
+            string query = "SELECT LETTRECATEGORIE, LIBELLE FROM categorie";
             try
             {
                 if (maCnx.State == ConnectionState.Closed)
                     maCnx.Open();
-
                 MySqlCommand cmd = new MySqlCommand(query, maCnx);
-                cmd.Parameters.AddWithValue("@LiaisonId", liaisonSelectionnee.GetNoLiaison());
-                cmd.Parameters.AddWithValue("@Date", dateSelectionnee);
-
                 MySqlDataReader reader = cmd.ExecuteReader();
-                lvPlaceDispo.Items.Clear();
-
                 while (reader.Read())
                 {
-                    ListViewItem item = new ListViewItem(reader["NOTRAVERSEE"].ToString());
-                    item.SubItems.Add(reader["HEURE_DEPART"].ToString());
-                    item.SubItems.Add(reader["NOM_BATEAU"].ToString());
-                    item.SubItems.Add(reader["A_PASSAGER"].ToString());
-                    item.SubItems.Add(reader["B_VEH_INF_2M"].ToString());
-                    item.SubItems.Add(reader["C_VEH_SUP_2M"].ToString());
-
-                    lvPlaceDispo.Items.Add(item);
+                    categories.Add(new Categorie(reader.GetString("LETTRECATEGORIE"), reader.GetString("LIBELLE")));
                 }
                 reader.Close();
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Erreur lors du chargement des places disponibles : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 if (maCnx.State == ConnectionState.Open)
                     maCnx.Close();
             }
+            return categories;
         }
+
+        private List<Traversee> getLesTraverseesBateaux(int noLiaison, DateTime dateSelectionnee)
+        {
+            List<Traversee> traversees = new List<Traversee>();
+            string query = @"SELECT t.NOTRAVERSEE, t.DATEHEUREDEPART, b.NOM AS NOM_BATEAU
+                     FROM traversee t
+                     JOIN bateau b ON t.NOBATEAU = b.NOBATEAU
+                     WHERE t.NOLIAISON = @noLiaison AND DATE(t.DATEHEUREDEPART) = @dateSelectionnee
+                     ORDER BY t.DATEHEUREDEPART";
+            try
+            {
+                if (maCnx.State == ConnectionState.Closed)
+                    maCnx.Open();
+                MySqlCommand cmd = new MySqlCommand(query, maCnx);
+                cmd.Parameters.AddWithValue("@noLiaison", noLiaison);
+                cmd.Parameters.AddWithValue("@dateSelectionnee", dateSelectionnee);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    traversees.Add(new Traversee(
+                        reader.GetInt32("NOTRAVERSEE"),
+                        reader.GetDateTime("DATEHEUREDEPART"),
+                        reader.GetString("NOM_BATEAU")
+                    ));
+                }
+                reader.Close();
+            }
+            finally
+            {
+                if (maCnx.State == ConnectionState.Open)
+                    maCnx.Close();
+            }
+            return traversees;
+        }
+
+        private int getQuantiteEnregistree(int noTraversee, string lettreCategorie)
+        {
+            string query = "SELECT IFNULL(SUM(QUANTITERESERVEE), 0) AS Quantite FROM enregistrer WHERE NOTRAVERSEE = @noTraversee AND LETTRECATEGORIE = @lettreCategorie";
+            int quantite = 0;
+            try
+            {
+                if (maCnx.State == ConnectionState.Closed)
+                    maCnx.Open();
+                MySqlCommand cmd = new MySqlCommand(query, maCnx);
+                cmd.Parameters.AddWithValue("@noTraversee", noTraversee);
+                cmd.Parameters.AddWithValue("@lettreCategorie", lettreCategorie);
+                quantite = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            finally
+            {
+                if (maCnx.State == ConnectionState.Open)
+                    maCnx.Close();
+            }
+            return quantite;
+        }
+
+        private int getCapaciteMaximale(int noTraversee, string lettreCategorie)
+        {
+            string query = "SELECT CAPACITEMAX FROM contenir JOIN traversee USING (NOBATEAU) WHERE NOTRAVERSEE = @noTraversee AND LETTRECATEGORIE = @lettreCategorie";
+            int capacite = 0;
+            try
+            {
+                if (maCnx.State == ConnectionState.Closed)
+                    maCnx.Open();
+                MySqlCommand cmd = new MySqlCommand(query, maCnx);
+                cmd.Parameters.AddWithValue("@noTraversee", noTraversee);
+                cmd.Parameters.AddWithValue("@lettreCategorie", lettreCategorie);
+                capacite = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            finally
+            {
+                if (maCnx.State == ConnectionState.Open)
+                    maCnx.Close();
+            }
+            return capacite;
+        }
+
         private void lbxPlaceDispoSecteur_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lbxPlaceDispoSecteur.SelectedItem != null)
