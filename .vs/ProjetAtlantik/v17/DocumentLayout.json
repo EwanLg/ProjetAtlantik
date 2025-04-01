@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formliaison.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\prog\\projetatlantik\\formajoutersecteur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formajoutersecteur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\prog\\projetatlantik\\formliaison.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formliaison.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\prog\\projetatlantik\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\prog\\projetatlantik\\formajoutersecteur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formajoutersecteur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{77557DA6-1F08-415B-A4E3-41DDD098B3E1}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\prog\\projetatlantik\\formajoutersecteur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -40,14 +40,14 @@
               "RelativeDocumentMoniker": "ProjetAtlantik\\FormLiaison.cs",
               "ToolTip": "C:\\Prog\\ProjetAtlantik\\FormLiaison.cs",
               "RelativeToolTip": "ProjetAtlantik\\FormLiaison.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAwwEAAAAA0AAAA",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAwwDoAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T12:56:16.974Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "FormLiaison.cs [Design]",
               "DocumentMoniker": "C:\\Prog\\ProjetAtlantik\\FormLiaison.cs",
               "RelativeDocumentMoniker": "ProjetAtlantik\\FormLiaison.cs",
@@ -59,7 +59,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Prog\\ProjetAtlantik\\Program.cs",
               "RelativeDocumentMoniker": "ProjetAtlantik\\Program.cs",
@@ -85,7 +85,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "FormAjouterSecteur.cs [Design]",
               "DocumentMoniker": "C:\\Prog\\ProjetAtlantik\\FormAjouterSecteur.cs",
               "RelativeDocumentMoniker": "ProjetAtlantik\\FormAjouterSecteur.cs",
