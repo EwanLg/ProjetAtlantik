@@ -136,12 +136,12 @@ namespace ProjetAtlantik
                 if (maCnx.State == ConnectionState.Closed)
                     maCnx.Open();
                 MySqlCommand cmd = new MySqlCommand(query, maCnx);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                MySqlDataReader jeuEnr = cmd.ExecuteReader();
+                while (jeuEnr.Read())
                 {
-                    categories.Add(new Categorie(reader.GetString("LETTRECATEGORIE"), reader.GetString("LIBELLE")));
+                    categories.Add(new Categorie(jeuEnr.GetString("LETTRECATEGORIE"), jeuEnr.GetString("LIBELLE")));
                 }
-                reader.Close();
+                jeuEnr.Close();
             }
             finally
             {
@@ -166,16 +166,16 @@ namespace ProjetAtlantik
                 MySqlCommand cmd = new MySqlCommand(query, maCnx);
                 cmd.Parameters.AddWithValue("@noLiaison", noLiaison);
                 cmd.Parameters.AddWithValue("@dateSelectionnee", dateSelectionnee);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                MySqlDataReader jeuEnr = cmd.ExecuteReader();
+                while (jeuEnr.Read())
                 {
                     traversees.Add(new Traversee(
-                        reader.GetInt32("NOTRAVERSEE"),
-                        reader.GetDateTime("DATEHEUREDEPART"),
-                        reader.GetString("NOM_BATEAU")
+                        jeuEnr.GetInt32("NOTRAVERSEE"),
+                        jeuEnr.GetDateTime("DATEHEUREDEPART"),
+                        jeuEnr.GetString("NOM_BATEAU")
                     ));
                 }
-                reader.Close();
+                jeuEnr.Close();
             }
             finally
             {
