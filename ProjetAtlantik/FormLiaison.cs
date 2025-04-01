@@ -62,7 +62,7 @@ namespace ProjetAtlantik
                     {
                         Port p = new Port(jeuEnr.GetString("nom"), jeuEnr.GetInt32("noPort"));
                         cmbLiaisonDepart.Items.Add(p);
-                        cmbLiaisonArrivee.Items.Add(p);
+                        cmbLiaisonArrivee.Items.Add(jeuEnr.GetInt32("noPort").ToString()  + p);
                     }
                 }
             }
