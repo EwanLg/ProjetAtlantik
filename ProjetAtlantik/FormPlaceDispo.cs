@@ -152,9 +152,9 @@ namespace ProjetAtlantik
                     var tabItem = new string[6]
                     {
                         jeuEnr.GetInt32("NORESERVATION").ToString(),
-                        jeuEnr.GetString(""),
-                        jeuEnr.GetInt32("g").ToString(),
-                        jeuEnr.GetDateTime("DATEHEUREDEPART").ToString("dd/MM/yyyy HH:mm"),
+                        jeuEnr.GetDateTime("").ToString(),
+                        jeuEnr.GetInt32("NOBATEAU").ToString(),
+                        jeuEnr.GetInt32("NOBATEAU").ToString(),
                         jeuEnr.GetDateTime("DATEHEUREDEPART").ToString("dd/MM/yyyy HH:mm"),
                         jeuEnr.GetDateTime("DATEHEUREDEPART").ToString("dd/MM/yyyy HH:mm")
                     };
