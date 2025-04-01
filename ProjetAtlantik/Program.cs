@@ -16,7 +16,7 @@ namespace ProjetAtlantik
             string connectionString = "server=localhost;database=Atlantik;user=root;password=;";
             MySqlConnection maCnx = new MySqlConnection(connectionString);
 
-            Application.Run(new FormLiaison(maCnx));
+            Application.Run(new FormTarifs(maCnx));
         }
     }
 }
